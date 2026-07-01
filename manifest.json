@@ -1,0 +1,17 @@
+{
+  "name": "My Rhythm · Cycle Harmony",
+  "short_name": "My Rhythm",
+  "description": "Your personalized hormone cycle dashboard",
+  "start_url": "/cycle-harmony/dashboard.html",
+  "display": "standalone",
+  "background_color": "#fdf8f5",
+  "theme_color": "#b86080",
+  "orientation": "portrait",
+  "icons": [
+    {
+      "src": "data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 192 192'><rect width='192' height='192' rx='40' fill='%23b86080'/><text y='130' x='96' text-anchor='middle' font-size='110' font-family='serif'>✦</text></svg>",
+      "sizes": "192x192",
+      "type": "image/svg+xml"
+    }
+  ]
+}

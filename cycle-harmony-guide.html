@@ -1,0 +1,1179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hormone Harmony Guide · Cycle Harmony by EAUCO</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --rose:    #b86080;
+  --sage:    #5e8c6a;
+  --amber:   #b87840;
+  --plum:    #7a5a80;
+  --text:    #2e1a22;
+  --dim:     #5a3a48;
+  --light:   #9a7a88;
+  --bg:      #fdf8f5;
+  --card:    #ffffff;
+  --border:  #ead8e0;
+  --m:       #8a4060;
+  --f:       #5e8c6a;
+  --o:       #b87840;
+  --l:       #7a5a80;
+}
+*{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--text);line-height:1.6;font-size:14px;}
+
+/* ── SCREEN NAV ── */
+.screen-nav{display:flex;align-items:center;justify-content:space-between;padding:14px 32px;background:#fff;border-bottom:1px solid var(--border);position:sticky;top:0;z-index:50;}
+.screen-nav-brand{font-family:'Cormorant Garamond',serif;font-size:1.1rem;color:var(--rose);}
+.screen-nav-links{display:flex;gap:16px;align-items:center;}
+.screen-nav-links a{font-size:0.75rem;color:var(--dim);text-decoration:none;}
+.screen-nav-links a:hover{color:var(--rose);}
+.print-btn{background:var(--rose);color:#fff;border:none;border-radius:20px;padding:8px 18px;font-size:0.75rem;font-weight:500;cursor:pointer;letter-spacing:0.04em;}
+.print-btn:hover{background:#9e4e6a;}
+@media print{.screen-nav{display:none;}}
+
+/* ── PAGE LAYOUT ── */
+.guide{max-width:760px;margin:0 auto;padding:0 20px 60px;}
+@media print{
+  .guide{max-width:100%;padding:0;margin:0;}
+  body{background:#fff;font-size:11px;}
+}
+
+/* ── COVER ── */
+.cover{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:60px 40px;background:linear-gradient(160deg,#fff5f8 0%,#fff8f0 100%);border-bottom:2px solid var(--border);}
+@media print{.cover{min-height:auto;page-break-after:always;padding:80px 40px;}}
+.cover-eyebrow{font-size:0.6rem;letter-spacing:0.24em;text-transform:uppercase;color:var(--rose);margin-bottom:24px;}
+.cover-title{font-family:'Cormorant Garamond',serif;font-size:clamp(2.8rem,8vw,5rem);font-weight:300;line-height:1.08;color:var(--text);margin-bottom:8px;}
+.cover-title em{color:var(--rose);font-style:italic;}
+.cover-subtitle{font-family:'Cormorant Garamond',serif;font-size:1.2rem;font-style:italic;color:var(--dim);margin-bottom:32px;}
+.cover-divider{width:60px;height:1px;background:var(--rose);margin:0 auto 28px;}
+.cover-desc{font-size:0.82rem;color:var(--dim);line-height:1.9;max-width:440px;}
+.cover-by{margin-top:40px;font-size:0.65rem;letter-spacing:0.16em;text-transform:uppercase;color:var(--light);}
+.cover-by strong{color:var(--rose);}
+.cover-note{margin-top:16px;font-size:0.65rem;color:var(--light);line-height:1.7;max-width:380px;}
+
+/* ── SECTIONS ── */
+.guide-section{padding:56px 0;border-bottom:1px solid var(--border);}
+@media print{.guide-section{padding:32px 0;page-break-inside:avoid;}}
+.section-header{margin-bottom:32px;}
+.s-eyebrow{font-size:0.58rem;letter-spacing:0.22em;text-transform:uppercase;color:var(--rose);margin-bottom:8px;}
+.s-title{font-family:'Cormorant Garamond',serif;font-size:clamp(1.6rem,4vw,2.4rem);font-weight:300;line-height:1.2;color:var(--text);}
+.s-title em{color:var(--rose);font-style:italic;}
+.s-sub{font-size:0.8rem;color:var(--dim);line-height:1.85;margin-top:8px;max-width:520px;}
+.callout{background:#fff;border-radius:12px;padding:20px 22px;border:1px solid var(--border);margin:20px 0;}
+.callout-rose{border-left:3px solid var(--rose);background:linear-gradient(135deg,#fff5f8,#fff);}
+.callout-sage{border-left:3px solid var(--sage);background:linear-gradient(135deg,#f2f8f4,#fff);}
+.callout-amber{border-left:3px solid var(--amber);background:linear-gradient(135deg,#fff8f0,#fff);}
+.callout h4{font-family:'Cormorant Garamond',serif;font-size:1rem;color:var(--text);margin-bottom:6px;}
+.callout p{font-size:0.77rem;color:var(--dim);line-height:1.8;}
+
+/* ── PHASE CARDS ── */
+.phase-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:24px;}
+@media(max-width:560px){.phase-grid{grid-template-columns:1fr;}}
+@media print{.phase-grid{gap:10px;}}
+.pg-card{border-radius:12px;padding:20px 18px;border:1px solid;}
+.pg-m{background:linear-gradient(135deg,#fff8fb,#fff);border-color:#e8c0d0;}
+.pg-f{background:linear-gradient(135deg,#f8fcf8,#fff);border-color:#c0d8c4;}
+.pg-o{background:linear-gradient(135deg,#fff8f0,#fff);border-color:#e0c8a0;}
+.pg-l{background:linear-gradient(135deg,#faf6fc,#fff);border-color:#d0b8d8;}
+.pg-season{font-size:0.57rem;letter-spacing:0.16em;text-transform:uppercase;margin-bottom:3px;}
+.pg-m .pg-season{color:var(--m);}
+.pg-f .pg-season{color:var(--f);}
+.pg-o .pg-season{color:var(--o);}
+.pg-l .pg-season{color:var(--l);}
+.pg-name{font-family:'Cormorant Garamond',serif;font-size:1.25rem;font-weight:300;margin-bottom:3px;}
+.pg-m .pg-name{color:var(--m);}
+.pg-f .pg-name{color:var(--f);}
+.pg-o .pg-name{color:var(--o);}
+.pg-l .pg-name{color:var(--l);}
+.pg-theme{font-family:'Cormorant Garamond',serif;font-size:0.8rem;font-style:italic;color:var(--dim);margin-bottom:12px;}
+.pg-body{font-size:0.74rem;color:var(--dim);line-height:1.75;}
+.pg-cols{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:12px;}
+.pg-col-label{font-size:0.57rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--light);margin-bottom:5px;}
+.pg-list{list-style:none;}
+.pg-list li{font-size:0.71rem;color:var(--dim);padding:2px 0;display:flex;gap:5px;line-height:1.5;}
+.pg-list li::before{content:'·';opacity:0.4;flex-shrink:0;}
+
+/* ── FOOD TABLES ── */
+.food-phase-block{margin:20px 0;border:1px solid var(--border);border-radius:12px;overflow:hidden;}
+.food-phase-header{padding:12px 18px;font-family:'Cormorant Garamond',serif;font-size:1rem;display:flex;align-items:center;gap:10px;}
+.fph-m{background:#fff0f5;color:var(--m);}
+.fph-f{background:#f0f8f2;color:var(--f);}
+.fph-o{background:#fff4e8;color:var(--o);}
+.fph-l{background:#f4eef8;color:var(--l);}
+.food-phase-body{padding:14px 18px;background:#fff;}
+.food-cols{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;}
+@media(max-width:480px){.food-cols{grid-template-columns:1fr;}}
+.food-col-label{font-size:0.58rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--light);margin-bottom:6px;}
+.food-list{list-style:none;}
+.food-list li{font-size:0.72rem;color:var(--dim);padding:2px 0;display:flex;gap:5px;}
+.food-list li::before{content:'·';opacity:0.4;}
+
+/* ── HERB TABLE ── */
+.herb-table{width:100%;border-collapse:collapse;margin-top:16px;font-size:0.74rem;}
+.herb-table th{background:linear-gradient(135deg,#f2f8f4,#fff);color:var(--sage);padding:9px 12px;text-align:left;font-size:0.6rem;letter-spacing:0.12em;text-transform:uppercase;border-bottom:2px solid #c0d8c4;}
+.herb-table td{padding:9px 12px;border-bottom:1px solid #e8f0e8;color:var(--dim);line-height:1.6;vertical-align:top;}
+.herb-table tr:last-child td{border-bottom:none;}
+.herb-name-cell{font-family:'Cormorant Garamond',serif;font-size:0.92rem;color:var(--sage);}
+.phase-badge{font-size:0.58rem;padding:2px 7px;border-radius:10px;background:#e4f2e8;color:var(--sage);border:1px solid #c0d8c4;white-space:nowrap;display:inline-block;margin:2px 2px 0 0;}
+
+/* ── SUPPLEMENT TABLE ── */
+.supp-table{width:100%;border-collapse:collapse;margin-top:16px;font-size:0.74rem;}
+.supp-table th{background:linear-gradient(135deg,#fff5f8,#fff);color:var(--rose);padding:9px 12px;text-align:left;font-size:0.6rem;letter-spacing:0.12em;text-transform:uppercase;border-bottom:2px solid var(--border);}
+.supp-table td{padding:9px 12px;border-bottom:1px solid var(--border);color:var(--dim);line-height:1.6;vertical-align:top;}
+.supp-table tr:last-child td{border-bottom:none;}
+.supp-name-cell{font-family:'Cormorant Garamond',serif;font-size:0.92rem;color:var(--text);}
+.when-badge{font-size:0.6rem;padding:2px 8px;border-radius:10px;background:#fff5f8;color:var(--rose);border:1px solid #f0c8d8;}
+
+/* ── TCM SECTION ── */
+.tcm-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:20px;}
+@media(max-width:520px){.tcm-grid{grid-template-columns:1fr;}}
+.tcm-card-p{background:linear-gradient(135deg,#fff8f0,#fff);border-radius:12px;padding:18px 16px;border:1px solid #ead0b0;}
+.tcm-card-p h4{font-family:'Cormorant Garamond',serif;font-size:0.98rem;color:#7a4010;margin-bottom:8px;}
+.tcm-card-p p{font-size:0.73rem;color:var(--dim);line-height:1.78;}
+.warmth-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:16px;}
+@media(max-width:520px){.warmth-grid{grid-template-columns:1fr;}}
+.warmth-item-p{background:#fff;border-radius:8px;padding:10px 14px;border:1px solid #ead0b0;font-size:0.73rem;color:var(--dim);display:flex;gap:8px;align-items:flex-start;line-height:1.6;}
+.warmth-item-p::before{content:'✦';color:var(--amber);flex-shrink:0;font-size:0.6rem;margin-top:2px;}
+
+/* ── AI PROMPTS SECTION ── */
+.prompt-block{background:#fff;border-radius:12px;padding:16px 18px;border:1px solid var(--border);margin-bottom:14px;}
+.prompt-block h4{font-family:'Cormorant Garamond',serif;font-size:0.95rem;color:var(--text);margin-bottom:8px;display:flex;align-items:center;gap:8px;}
+.prompt-text{background:var(--bg);border-radius:8px;padding:12px 14px;font-size:0.72rem;color:var(--dim);line-height:1.75;border-left:3px solid var(--rose);font-style:italic;}
+.prompt-note{font-size:0.67rem;color:var(--light);margin-top:7px;line-height:1.6;}
+
+/* ── TRACKER PAGES ── */
+.tracker-page{padding:40px 0;border-bottom:1px solid var(--border);}
+@media print{.tracker-page{page-break-before:always;}}
+.tracker-header{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:24px;flex-wrap:wrap;gap:10px;}
+.tracker-title{font-family:'Cormorant Garamond',serif;font-size:1.6rem;font-weight:300;color:var(--text);}
+.tracker-month-line{font-size:0.7rem;color:var(--light);border-bottom:1px solid var(--border);padding-bottom:4px;min-width:160px;}
+.cycle-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:6px;margin-bottom:24px;}
+.cycle-cell{border:1px solid var(--border);border-radius:8px;padding:10px 6px;min-height:72px;background:#fff;}
+.cycle-cell-day{font-size:0.6rem;color:var(--light);margin-bottom:4px;}
+.cycle-cell-num{font-family:'Cormorant Garamond',serif;font-size:0.9rem;color:var(--text);}
+.cycle-cell-lines{margin-top:6px;}
+.cycle-cell-lines span{display:block;border-bottom:1px solid #f0e8ec;height:8px;margin-bottom:3px;}
+.tracker-key{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:20px;}
+.key-item{display:flex;align-items:center;gap:5px;font-size:0.65rem;color:var(--dim);}
+.key-dot{width:10px;height:10px;border-radius:50%;}
+.kd-m{background:var(--m);}
+.kd-f{background:var(--f);}
+.kd-o{background:var(--o);}
+.kd-l{background:var(--l);}
+.log-table{width:100%;border-collapse:collapse;font-size:0.71rem;}
+.log-table th{background:var(--bg);color:var(--light);padding:7px 8px;text-align:left;font-size:0.58rem;letter-spacing:0.1em;text-transform:uppercase;border-bottom:2px solid var(--border);}
+.log-table td{padding:10px 8px;border-bottom:1px solid #f5eef2;height:32px;color:var(--dim);}
+.log-table tr:last-child td{border-bottom:none;}
+.log-dot-col{width:28px;text-align:center;}
+.log-dot{width:10px;height:10px;border-radius:50%;border:1px solid var(--border);display:inline-block;}
+
+/* ── GROCERY TEMPLATES ── */
+.grocery-page{padding:40px 0;border-bottom:1px solid var(--border);}
+@media print{.grocery-page{page-break-before:always;}}
+.grocery-header{display:flex;align-items:center;gap:14px;margin-bottom:20px;}
+.grocery-phase-icon{width:44px;height:44px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.1rem;flex-shrink:0;}
+.gpi-m{background:#fce8f0;}
+.gpi-f{background:#e4f2e8;}
+.gpi-o{background:#fef0d8;}
+.gpi-l{background:#f0e4f8;}
+.grocery-phase-name{font-family:'Cormorant Garamond',serif;font-size:1.3rem;font-weight:300;}
+.gn-m{color:var(--m);}
+.gn-f{color:var(--f);}
+.gn-o{color:var(--o);}
+.gn-l{color:var(--l);}
+.grocery-sub{font-size:0.68rem;color:var(--light);}
+.grocery-cols{display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px;}
+@media(max-width:500px){.grocery-cols{grid-template-columns:1fr;}}
+.grocery-col h4{font-size:0.6rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--light);margin-bottom:10px;padding-bottom:5px;border-bottom:1px solid var(--border);}
+.check-list{list-style:none;}
+.check-list li{display:flex;align-items:center;gap:8px;font-size:0.73rem;color:var(--dim);padding:5px 0;border-bottom:1px dashed #f0e8ec;}
+.check-list li:last-child{border-bottom:none;}
+.checkbox{width:14px;height:14px;border:1.5px solid var(--border);border-radius:3px;flex-shrink:0;}
+.grocery-notes{margin-top:14px;border:1px dashed var(--border);border-radius:8px;padding:12px 14px;min-height:60px;}
+.grocery-notes-label{font-size:0.6rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--light);margin-bottom:6px;}
+.budget-line{display:flex;gap:20px;margin-bottom:12px;flex-wrap:wrap;}
+.budget-field{font-size:0.68rem;color:var(--dim);display:flex;gap:6px;align-items:center;}
+.budget-input{border-bottom:1px solid var(--border);min-width:100px;height:18px;display:inline-block;}
+
+/* ── REFLECTION ── */
+.reflection-page{padding:40px 0;}
+@media print{.reflection-page{page-break-before:always;}}
+.reflection-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
+@media(max-width:520px){.reflection-grid{grid-template-columns:1fr;}}
+.r-block{background:#fff;border-radius:12px;padding:18px;border:1px solid var(--border);}
+.r-block h4{font-family:'Cormorant Garamond',serif;font-size:0.95rem;color:var(--text);margin-bottom:10px;}
+.r-lines{margin-top:10px;}
+.r-line{border-bottom:1px solid #f0e8ec;height:28px;margin-bottom:4px;}
+.r-prompt{font-size:0.7rem;color:var(--light);font-style:italic;margin-bottom:6px;}
+
+/* ── QUOTE BLOCKS ── */
+.guide-quote{text-align:center;padding:32px 24px;background:linear-gradient(135deg,#fff5f8,#fff8f0);border-radius:14px;border:1px solid var(--border);margin:28px 0;}
+.guide-quote p{font-family:'Cormorant Garamond',serif;font-size:1.15rem;font-style:italic;color:var(--rose);line-height:1.65;}
+
+/* ── PRINT STYLES ── */
+@media print {
+  @page { margin: 1.5cm; size: letter; }
+  body { color: #000; background: #fff; }
+  .callout, .pg-card, .food-phase-block, .herb-table, .supp-table,
+  .tcm-card-p, .prompt-block, .cycle-cell, .r-block, .grocery-col { break-inside: avoid; }
+  h2, h3, h4 { break-after: avoid; }
+  .guide-section { break-inside: auto; }
+  a { text-decoration: none; color: inherit; }
+}
+</style>
+</head>
+<body>
+
+<!-- SCREEN NAV (hidden on print) -->
+<nav class="screen-nav">
+  <div class="screen-nav-brand">✦ Hormone Harmony Guide · Cycle Harmony</div>
+  <div class="screen-nav-links">
+    <a href="./">← Back to Cycle Harmony</a>
+    <button class="print-btn" onclick="window.print()">🖨 Print / Save PDF</button>
+  </div>
+</nav>
+
+<div class="guide">
+
+<!-- ══ COVER ══ -->
+<div class="cover">
+  <div class="cover-eyebrow">✦ Cycle Harmony · by EAUCO</div>
+  <h1 class="cover-title">Hormone<br><em>Harmony</em></h1>
+  <div class="cover-subtitle">A Complete Guide to Understanding, Nourishing<br>&amp; Living Within Your Cycle</div>
+  <div class="cover-divider"></div>
+  <p class="cover-desc">Everything you need to understand your hormone cycle, track your phases, eat and move in alignment, support yourself with herbs and traditional wisdom, and build a relationship with your own body that changes everything.</p>
+  <div class="cover-by">Created by <strong>Maddie Galloway</strong> · EAUCO · ElevateAlign.com</div>
+  <p class="cover-note">Educational content only. Not medical advice. Always consult a healthcare provider for your specific situation. For personal use — please share the link, not the file.</p>
+</div>
+
+<!-- ══ INTRO ══ -->
+<div class="guide-section">
+  <div class="section-header">
+    <div class="s-eyebrow">✦ A Note Before You Begin</div>
+    <h2 class="s-title">This guide exists because<br><em>no one taught us this.</em></h2>
+    <p class="s-sub">I spent years pushing through fatigue, PMS, mood swings, and a body I didn't understand — thinking it was just what being a woman felt like. After antibiotics wiped out my gut microbiome, my hormones fell apart entirely. That's when I started learning. This guide is everything I wish someone had handed me at the start.</p>
+  </div>
+
+  <div class="callout callout-rose">
+    <h4>How to use this guide</h4>
+    <p>Read it through once to understand the big picture. Then use the phase cards, food guides, grocery lists, and tracking pages as living tools — return to them at the start of each phase. The AI prompts are copy-paste ready for Claude or ChatGPT so you can personalize meals, workouts, and more instantly.</p>
+  </div>
+
+  <div class="callout callout-sage" style="margin-top:14px;">
+    <h4>A word on "balance"</h4>
+    <p>The goal isn't perfect hormones or a perfect cycle. The goal is understanding your body well enough to support it — and building the self-trust that comes from paying attention. Symptoms are information, not failure. Your body is communicating. This guide teaches you how to listen.</p>
+  </div>
+</div>
+
+<!-- ══ UNDERSTANDING YOUR CYCLE ══ -->
+<div class="guide-section">
+  <div class="section-header">
+    <div class="s-eyebrow">✦ Chapter 1</div>
+    <h2 class="s-title">Understanding Your<br><em>Hormone Cycle</em></h2>
+    <p class="s-sub">Your menstrual cycle is a 21–35 day process driven by four shifting hormones. It's not just about your period — it's a monthly rhythm that influences your energy, mood, focus, metabolism, creativity, and relational needs every single day.</p>
+  </div>
+
+  <div class="callout callout-rose">
+    <h4>The four key hormones</h4>
+    <p><strong>Estrogen:</strong> Rises through follicular and peaks at ovulation. Boosts mood, energy, and libido. Supports brain function and bone density.<br><strong>Progesterone:</strong> Rises after ovulation through luteal. Calming, grounding, sleep-supportive. Drops sharply before your period — this drop drives PMS.<br><strong>LH (luteinizing hormone):</strong> Surges right before ovulation, triggering egg release.<br><strong>FSH (follicle-stimulating hormone):</strong> Rises during follicular phase, stimulating egg development.</p>
+  </div>
+
+  <h3 style="font-family:'Cormorant Garamond',serif;font-size:1.2rem;color:var(--text);margin:24px 0 8px;">How to identify which phase you're in</h3>
+  <div class="phase-grid">
+    <div class="pg-card pg-m">
+      <div class="pg-season">✦ Winter · Days 1–5 approx</div>
+      <div class="pg-name">Menstrual</div>
+      <div class="pg-theme">Rest + Reflection + Renewal</div>
+      <p class="pg-body">Your period has started. Estrogen and progesterone are both at their lowest. Energy turns inward. You may feel tired, introspective, and craving warmth and rest. This is biologically appropriate — your body is doing significant work.</p>
+      <div class="pg-cols">
+        <div>
+          <div class="pg-col-label">Signs</div>
+          <ul class="pg-list">
+            <li>Bleeding (Day 1)</li>
+            <li>Low energy</li>
+            <li>Wanting quiet</li>
+            <li>Craving warmth</li>
+          </ul>
+        </div>
+        <div>
+          <div class="pg-col-label">Support</div>
+          <ul class="pg-list">
+            <li>Rest without guilt</li>
+            <li>Warm foods + tea</li>
+            <li>Gentle movement</li>
+            <li>Reflection + journal</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="pg-card pg-f">
+      <div class="pg-season">✦ Spring · Days 6–13 approx</div>
+      <div class="pg-name">Follicular</div>
+      <div class="pg-theme">Growth + Creation + Energy Rising</div>
+      <p class="pg-body">Bleeding has stopped. Estrogen begins rising. Energy returns, mood lifts, and motivation builds. This is the best phase for starting new things, building strength, and creative work. Your body is building toward ovulation.</p>
+      <div class="pg-cols">
+        <div>
+          <div class="pg-col-label">Signs</div>
+          <ul class="pg-list">
+            <li>Increasing energy</li>
+            <li>Clearer skin</li>
+            <li>Optimism</li>
+            <li>Mucus increasing</li>
+          </ul>
+        </div>
+        <div>
+          <div class="pg-col-label">Support</div>
+          <ul class="pg-list">
+            <li>Strength training</li>
+            <li>New projects</li>
+            <li>Fresh foods</li>
+            <li>Learn something</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="pg-card pg-o">
+      <div class="pg-season">✦ Summer · Days 14–17 approx</div>
+      <div class="pg-name">Ovulatory</div>
+      <div class="pg-theme">Connection + Peak Energy + Expression</div>
+      <p class="pg-body">Estrogen peaks. LH surges and the egg is released. Natural charisma, social confidence, and communication are at their highest. The shortest phase — and often the most magnetic. Schedule big moments here.</p>
+      <div class="pg-cols">
+        <div>
+          <div class="pg-col-label">Signs</div>
+          <ul class="pg-list">
+            <li>Peak energy</li>
+            <li>Egg-white mucus</li>
+            <li>Libido increase</li>
+            <li>Feeling magnetic</li>
+          </ul>
+        </div>
+        <div>
+          <div class="pg-col-label">Support</div>
+          <ul class="pg-list">
+            <li>Peak workouts</li>
+            <li>Big meetings</li>
+            <li>Social plans</li>
+            <li>Collaboration</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="pg-card pg-l">
+      <div class="pg-season">✦ Autumn · Days 18–28 approx</div>
+      <div class="pg-name">Luteal</div>
+      <div class="pg-theme">Grounding + Completion + Inner Work</div>
+      <p class="pg-body">Progesterone rises, energy draws inward. Excellent for finishing projects, organizing, and detailed work. As progesterone drops toward your period, PMS can arise — almost always with a nutritional root. This phase needs the most nourishment.</p>
+      <div class="pg-cols">
+        <div>
+          <div class="pg-col-label">Signs</div>
+          <ul class="pg-list">
+            <li>Lower energy</li>
+            <li>More sensitive</li>
+            <li>Cravings increase</li>
+            <li>Bloating possible</li>
+          </ul>
+        </div>
+        <div>
+          <div class="pg-col-label">Support</div>
+          <ul class="pg-list">
+            <li>Pilates + walking</li>
+            <li>Finish + organize</li>
+            <li>Magnesium foods</li>
+            <li>Protect your no</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <h3 style="font-family:'Cormorant Garamond',serif;font-size:1.1rem;color:var(--text);margin:24px 0 10px;">How to start tracking your cycle</h3>
+  <div class="callout callout-amber">
+    <p><strong>Day 1</strong> is always the first day of full menstrual bleeding. Mark it on your calendar or in an app. From there, count forward. Most cycles are 25–35 days. Track daily: energy (1–10), mood, sleep quality, cravings, symptoms, and any notable physical observations. After 2–3 cycles, patterns emerge that are uniquely yours.</p>
+  </div>
+</div>
+
+<!-- ══ NUTRITION ══ -->
+<div class="guide-section">
+  <div class="section-header">
+    <div class="s-eyebrow">✦ Chapter 2</div>
+    <h2 class="s-title">Eating Within<br><em>Your Cycle</em></h2>
+    <p class="s-sub">The simplest strategy: know which phase you're entering, shop the day before it begins, and let your meals support what your body is already doing. Everything below is gluten-free friendly.</p>
+  </div>
+
+  <!-- Menstrual -->
+  <div class="food-phase-block">
+    <div class="food-phase-header fph-m">🩸 Menstrual Phase · Days 1–5 · Replenish + Restore</div>
+    <div class="food-phase-body">
+      <div class="food-cols">
+        <div>
+          <div class="food-col-label">Priority Foods</div>
+          <ul class="food-list">
+            <li>Leafy greens (spinach, kale)</li>
+            <li>Red meat, bison (iron)</li>
+            <li>Beets + carrots</li>
+            <li>Sweet potatoes</li>
+            <li>Bone broth</li>
+            <li>Dark chocolate 70%+</li>
+            <li>Berries (fresh or frozen)</li>
+            <li>Ginger + turmeric</li>
+          </ul>
+        </div>
+        <div>
+          <div class="food-col-label">Simple Meals</div>
+          <ul class="food-list">
+            <li>Bone broth soup + spinach</li>
+            <li>Sweet potato + egg hash</li>
+            <li>Warm quinoa + beet bowl</li>
+            <li>Chicken stew + root veg</li>
+            <li>GF protein pancakes + berries</li>
+          </ul>
+        </div>
+        <div>
+          <div class="food-col-label">Why It Helps</div>
+          <ul class="food-list">
+            <li>Iron replenishes blood loss</li>
+            <li>Turmeric reduces cramping</li>
+            <li>Warmth supports circulation</li>
+            <li>Magnesium eases muscle pain</li>
+            <li>Bone broth heals gut lining</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Follicular -->
+  <div class="food-phase-block" style="margin-top:12px;">
+    <div class="food-phase-header fph-f">🌱 Follicular Phase · Days 6–13 · Energize + Build</div>
+    <div class="food-phase-body">
+      <div class="food-cols">
+        <div>
+          <div class="food-col-label">Priority Foods</div>
+          <ul class="food-list">
+            <li>Broccoli, cauliflower, kale</li>
+            <li>Salmon + chicken</li>
+            <li>Eggs (versatile)</li>
+            <li>Quinoa + brown rice</li>
+            <li>Sauerkraut + kimchi</li>
+            <li>Avocado + pumpkin seeds</li>
+            <li>Bell peppers + cucumber</li>
+            <li>Blueberries + strawberries</li>
+          </ul>
+        </div>
+        <div>
+          <div class="food-col-label">Simple Meals</div>
+          <ul class="food-list">
+            <li>Salmon + sautéed greens</li>
+            <li>Fried rice w/ egg + veg</li>
+            <li>Chicken salad bowl</li>
+            <li>Protein pancakes + berries</li>
+            <li>GF breakfast burrito</li>
+          </ul>
+        </div>
+        <div>
+          <div class="food-col-label">Why It Helps</div>
+          <ul class="food-list">
+            <li>Cruciferous veg metabolize estrogen</li>
+            <li>Fermented foods rebuild gut</li>
+            <li>Pumpkin seeds support zinc</li>
+            <li>Protein builds strength</li>
+            <li>Lighter foods match energy</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Ovulatory -->
+  <div class="food-phase-block" style="margin-top:12px;">
+    <div class="food-phase-header fph-o">☀️ Ovulatory Phase · Days 14–17 · Peak + Protect</div>
+    <div class="food-phase-body">
+      <div class="food-cols">
+        <div>
+          <div class="food-col-label">Priority Foods</div>
+          <ul class="food-list">
+            <li>Berries + pomegranate</li>
+            <li>Arugula + spinach</li>
+            <li>Shellfish or lean protein</li>
+            <li>Avocado + walnuts</li>
+            <li>Flaxseed (daily — 1–2 tbsp)</li>
+            <li>Sunflower + sesame seeds</li>
+            <li>Citrus + lemon</li>
+            <li>Hibiscus tea</li>
+          </ul>
+        </div>
+        <div>
+          <div class="food-col-label">Simple Meals</div>
+          <ul class="food-list">
+            <li>Arugula salad + salmon</li>
+            <li>Spinach berry smoothie</li>
+            <li>Stir fry w/ kimchi side</li>
+            <li>Grain bowl + avocado</li>
+            <li>Light wraps w/ greens</li>
+          </ul>
+        </div>
+        <div>
+          <div class="food-col-label">Why It Helps</div>
+          <ul class="food-list">
+            <li>Antioxidants protect eggs</li>
+            <li>Flax supports estrogen clearance</li>
+            <li>Zinc supports ovulation</li>
+            <li>Cruciferous supports liver</li>
+            <li>Lighter meals match energy peak</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Luteal -->
+  <div class="food-phase-block" style="margin-top:12px;">
+    <div class="food-phase-header fph-l">🍂 Luteal Phase · Days 18–28 · Nourish + Ground</div>
+    <div class="food-phase-body">
+      <div class="food-cols">
+        <div>
+          <div class="food-col-label">Priority Foods</div>
+          <ul class="food-list">
+            <li>Sweet potatoes + carrots (raw)</li>
+            <li>Ground turkey + chicken thighs</li>
+            <li>Pumpkin seeds (magnesium)</li>
+            <li>Dark chocolate 70%+</li>
+            <li>Almonds (breast tenderness)</li>
+            <li>Dates + figs</li>
+            <li>Chia seeds + flaxseed</li>
+            <li>Bone broth + warm soups</li>
+          </ul>
+        </div>
+        <div>
+          <div class="food-col-label">Simple Meals</div>
+          <ul class="food-list">
+            <li>Sweet potato turkey chili</li>
+            <li>Chia pudding + frozen berries</li>
+            <li>Quinoa bowl + roasted veg</li>
+            <li>Caramel apples (condensed milk)</li>
+            <li>GF quesadilla + avocado</li>
+          </ul>
+        </div>
+        <div>
+          <div class="food-col-label">Why It Helps</div>
+          <ul class="food-list">
+            <li>Raw carrots bind excess estrogen</li>
+            <li>Magnesium eases cramps + PMS</li>
+            <li>Almonds reduce breast tenderness</li>
+            <li>Complex carbs stabilize mood</li>
+            <li>Fiber supports estrogen detox</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══ HERBAL APOTHECARY ══ -->
+<div class="guide-section">
+  <div class="section-header">
+    <div class="s-eyebrow">✦ Chapter 3</div>
+    <h2 class="s-title">The Herbal<br><em>Apothecary</em></h2>
+    <p class="s-sub">Ancient practitioners reached for these first. Educational only — always listen to your own body and consult a practitioner if you have health conditions, take medications, or are pregnant.</p>
+  </div>
+
+  <table class="herb-table">
+    <thead>
+      <tr><th>Herb</th><th>Traditional Use</th><th>Best Phase(s)</th><th>How to Use</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="herb-name-cell">🌿 Nettle Leaf</td>
+        <td>Deep mineral nourishment — iron, magnesium, calcium, potassium. Supports energy and blood building.</td>
+        <td><span class="phase-badge">Daily</span><span class="phase-badge">Menstrual</span><span class="phase-badge">Follicular</span></td>
+        <td>Tea infusion, 1–2 cups daily. Steep 5–10 min.</td>
+      </tr>
+      <tr>
+        <td class="herb-name-cell">🌿 Raspberry Leaf</td>
+        <td>Traditional uterine tonic. Supports uterine muscle tone, eases cramping, rich in minerals.</td>
+        <td><span class="phase-badge">Daily</span><span class="phase-badge">Menstrual</span><span class="phase-badge">Luteal</span></td>
+        <td>Tea, 1–2 cups daily. Can blend with nettle.</td>
+      </tr>
+      <tr>
+        <td class="herb-name-cell">🌿 Holy Basil / Tulsi</td>
+        <td>Adaptogen. Modulates cortisol, calms the nervous system. Safer than ashwagandha for autoimmune types — immune-modulating, not stimulating.</td>
+        <td><span class="phase-badge">Daily</span><span class="phase-badge">Luteal</span></td>
+        <td>Tea or capsule, any time of day. Gentle enough for daily use.</td>
+      </tr>
+      <tr>
+        <td class="herb-name-cell">🌿 Lemon Balm</td>
+        <td>Calms the nervous system, eases PMS irritability and anxiety, supports sleep quality.</td>
+        <td><span class="phase-badge">Daily</span><span class="phase-badge">Luteal</span><span class="phase-badge">Menstrual</span></td>
+        <td>Evening tea. Pairs well with chamomile for sleep support.</td>
+      </tr>
+      <tr>
+        <td class="herb-name-cell">🌷 Shatavari</td>
+        <td>Ayurveda's queen of women's herbs. Supports estrogen balance, reproductive vitality, and lubrication. Cooling and restorative.</td>
+        <td><span class="phase-badge">Follicular</span><span class="phase-badge">Ovulatory</span></td>
+        <td>Powder in warm milk, capsule, or tincture.</td>
+      </tr>
+      <tr>
+        <td class="herb-name-cell">🍃 Vitex / Chaste Tree</td>
+        <td>Supports progesterone production and luteal phase balance. Reduces PMS, breast tenderness, and irregular cycles over time.</td>
+        <td><span class="phase-badge">Luteal</span></td>
+        <td>Capsule or tincture, morning. Works slowly — give it 3–6 months.</td>
+      </tr>
+      <tr>
+        <td class="herb-name-cell">🌸 Chamomile</td>
+        <td>Anti-inflammatory, antispasmodic. Eases cramping, bloating, and tension. Supports relaxation.</td>
+        <td><span class="phase-badge">Menstrual</span><span class="phase-badge">Luteal</span></td>
+        <td>Tea, 1–2 cups. Especially good as an evening wind-down.</td>
+      </tr>
+      <tr>
+        <td class="herb-name-cell">🍄 Reishi Mushroom</td>
+        <td>TCM immune modulator (not stimulator). Calming, prebiotic-supportive, supports adrenal health. Ideal for autoimmune types who want mushroom support.</td>
+        <td><span class="phase-badge">Daily</span><span class="phase-badge">Luteal</span></td>
+        <td>Evening — powder in tea, capsule, or tincture.</td>
+      </tr>
+      <tr>
+        <td class="herb-name-cell">⚡ Cordyceps</td>
+        <td>Energy, endurance, blood sugar balance. Supports stamina without cortisol spike. Prebiotic for gut health.</td>
+        <td><span class="phase-badge">Follicular</span><span class="phase-badge">Ovulatory</span></td>
+        <td>Morning — powder in coffee or smoothie, or capsule.</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="callout callout-sage" style="margin-top:20px;">
+    <h4>✦ The Foundation Daily Tea Blend</h4>
+    <p>Nettle Leaf · Raspberry Leaf · Holy Basil · Lemon Balm · Spearmint<br>
+    Steep 1–2 tsp per herb in hot (not boiling) water for 5–10 minutes. Drink 1–2 cups daily. This covers minerals, stress support, uterine nourishment, and nervous system calming all in one cup.</p>
+  </div>
+</div>
+
+<!-- ══ TCM & WOMB WARMTH ══ -->
+<div class="guide-section">
+  <div class="section-header">
+    <div class="s-eyebrow">✦ Chapter 4</div>
+    <h2 class="s-title">Traditional Wisdom &amp;<br><em>Womb Warmth</em></h2>
+    <p class="s-sub">Before labs and supplements, Traditional Chinese Medicine, Ayurveda, and ancestral herbalists understood something modern medicine is only beginning to confirm: the female body runs on warmth, rhythm, and nourishment.</p>
+  </div>
+
+  <div class="tcm-grid">
+    <div class="tcm-card-p">
+      <h4>🔥 Warmth as Medicine</h4>
+      <p>TCM teaches that cold contracts and warmth opens. The uterus thrives with warmth — cold environments, cold beverages, and cold extremities during menstruation are associated with increased cramping and disrupted blood flow. This isn't just tradition — poor peripheral circulation genuinely affects pelvic blood flow.</p>
+    </div>
+    <div class="tcm-card-p">
+      <h4>🌸 Blood Nourishment</h4>
+      <p>TCM views menstruation as a monthly loss that must be actively replenished. Nourishing blood through food — dark leafy greens, beets, bone broth, red meat — is foundational. This maps directly to modern understanding of iron, B12, and mineral replenishment after blood loss.</p>
+    </div>
+    <div class="tcm-card-p">
+      <h4>🌊 Qi Flow + Rest</h4>
+      <p>In TCM, the menstrual phase is a time of significant Qi (life force) movement. Overexertion during this time is said to deplete Qi and create stagnation — which presents as worse cramping, clots, and fatigue in subsequent cycles. Rest is not laziness here: it's energetic stewardship.</p>
+    </div>
+    <div class="tcm-card-p">
+      <h4>🍂 Seasonal Living</h4>
+      <p>Your cycle mirrors the seasons of nature: Menstrual = Winter (rest, inward, release), Follicular = Spring (growth, new starts), Ovulatory = Summer (peak, expression), Luteal = Autumn (harvest, completion, letting go). When you live seasonally within your cycle, effort and rest are always in the right places.</p>
+    </div>
+  </div>
+
+  <h3 style="font-family:'Cormorant Garamond',serif;font-size:1.15rem;color:var(--text);margin:24px 0 12px;">Womb Warmth Practices</h3>
+  <div class="warmth-grid">
+    <div class="warmth-item-p">Wear socks during your period — especially in cold weather. Cold feet = cold pelvis in TCM.</div>
+    <div class="warmth-item-p">Keep your lower abdomen covered. A scarf tied at your waist is the simplest protection.</div>
+    <div class="warmth-item-p">Drink warm or room-temp water and tea during menstruation — avoid iced drinks.</div>
+    <div class="warmth-item-p">Warm baths with Epsom salt in the luteal phase ease cramps and calm the nervous system.</div>
+    <div class="warmth-item-p">Eat cooked, warm foods during your period — not raw salads or cold smoothies.</div>
+    <div class="warmth-item-p">Use a heating pad or hot water bottle on your lower abdomen when cramping.</div>
+    <div class="warmth-item-p">Morning warm lemon water — especially during menstrual and luteal phases.</div>
+    <div class="warmth-item-p">Cover your torso in cold weather. Your core warmth affects your reproductive warmth.</div>
+  </div>
+
+  <div class="callout callout-amber" style="margin-top:20px;">
+    <h4>👅 TCM Tongue Reading — Try This Monthly</h4>
+    <p>In TCM, the tongue reflects internal organ health, circulation, digestion, and reproductive vitality. Take a photo of your tongue in natural light, then paste this prompt into Claude or ChatGPT:<br><br>
+    <em>"Using Traditional Chinese Medicine educational principles only, describe possible patterns in my tongue photo. Look at color, coating, moisture level, cracks, and different zones. Explain what patterns might suggest about digestion, circulation, energy, warmth/cold constitution, and menstrual health. I'm in my [phase] phase, cycle day [day]. Educational only — not medical advice."</em><br><br>
+    Do this monthly and compare. Your tongue changes with your cycle, diet, stress, and overall vitality over time.</p>
+  </div>
+</div>
+
+<!-- ══ SUPPLEMENTS ══ -->
+<div class="guide-section">
+  <div class="section-header">
+    <div class="s-eyebrow">✦ Chapter 5</div>
+    <h2 class="s-title">Supplement &amp;<br><em>Gut Health Support</em></h2>
+    <p class="s-sub">Food first — always. These are the supplements with the most consistent support for hormonal health and cycle regulation. Quality over quantity. You don't need everything at once.</p>
+  </div>
+
+  <table class="supp-table">
+    <thead>
+      <tr><th>Supplement</th><th>Why It Matters for Hormones</th><th>When to Take</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="supp-name-cell">☀️ Vitamin D3 + K2</td>
+        <td>D3 supports immune function, mood, insulin sensitivity, and hormone production. K2 ensures calcium goes to bones — always take these together. Most women are deficient.</td>
+        <td><span class="when-badge">Daily · fatty meal</span></td>
+      </tr>
+      <tr>
+        <td class="supp-name-cell">🧲 Magnesium Glycinate</td>
+        <td>Reduces PMS, breast tenderness, cramping, and anxiety. Supports sleep quality and blood sugar regulation. One of the most impactful supplements for hormone balance — and one of the most depleted.</td>
+        <td><span class="when-badge">Evening · luteal especially</span></td>
+      </tr>
+      <tr>
+        <td class="supp-name-cell">🦠 Probiotic</td>
+        <td>The estrobolome (gut bacteria) directly processes estrogen. A disrupted microbiome — from antibiotics, diet, or stress — causes estrogen recirculation and imbalance. Look for Lactobacillus + Bifidobacterium strains.</td>
+        <td><span class="when-badge">Daily · consistent timing</span></td>
+      </tr>
+      <tr>
+        <td class="supp-name-cell">⚡ B12 + B Complex</td>
+        <td>B6 reduces PMS, bloating, and mood swings. B12 supports energy and nervous system health. B2 supports mitochondrial energy production. Essential for women who don't eat much red meat or are gluten-free.</td>
+        <td><span class="when-badge">Morning · with food</span></td>
+      </tr>
+      <tr>
+        <td class="supp-name-cell">🐟 Omega-3 (Fish Oil)</td>
+        <td>Anti-inflammatory fat that directly supports hormone production. Reduces period pain, improves mood stability, and supports the liver's ability to process and eliminate excess estrogen efficiently.</td>
+        <td><span class="when-badge">Daily · largest meal</span></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="callout callout-sage" style="margin-top:20px;">
+    <h4>🦠 Rebuilding After Antibiotics</h4>
+    <p>Antibiotics wipe out both harmful and beneficial bacteria — including strains essential for hormone metabolism, mood, immunity, and digestion. Rebuilding takes 3–6 months of consistent support. Start with diverse fiber, a quality probiotic, and bone broth. Layer in fermented foods (sauerkraut, kimchi, kefir) as your gut stabilizes. Avoid sugar and processed foods while rebuilding — they feed the bacteria you don't want back first.</p>
+  </div>
+</div>
+
+<!-- ══ AI PROMPTS ══ -->
+<div class="guide-section">
+  <div class="section-header">
+    <div class="s-eyebrow">✦ Chapter 6</div>
+    <h2 class="s-title">Your AI<br><em>Prompt Toolkit</em></h2>
+    <p class="s-sub">Copy any prompt below. Open Claude (claude.ai) or ChatGPT. Fill in the [brackets]. Send. Get a personalized response in seconds. You don't need any subscription — these are free tools you likely already use.</p>
+  </div>
+
+  <div class="prompt-block">
+    <h4>🥗 Cycle-Aligned Meal Plan</h4>
+    <div class="prompt-text">"I'm in my [menstrual/follicular/ovulatory/luteal] phase (cycle day [number]). Create a 5-day hormone-supportive meal plan for this phase. Prioritize [phase-appropriate foods from this guide]. Dietary needs: gluten-free. Weekly budget: [$____]. Keep meals simple and include meal prep tips to minimize waste."</div>
+    <div class="prompt-note">Tip: Tell it what's already in your fridge to make the list even more practical and waste-reducing.</div>
+  </div>
+
+  <div class="prompt-block">
+    <h4>🛒 Phase Grocery List</h4>
+    <div class="prompt-text">"Build a condensed grocery list for one person entering their [phase] phase. Focus on blood sugar balance and hormone support for this phase. Keep it whole food-based and budget-friendly. I already have: [list what you have at home]. Minimize waste."</div>
+  </div>
+
+  <div class="prompt-block">
+    <h4>💪 Phase-Aligned Workout Plan</h4>
+    <div class="prompt-text">"Design a week of workouts for my [phase] phase. My goals: [glute growth / general strength / recovery / low-impact]. Current energy: [low/medium/high]. Equipment: [gym / home / walking only]. Time per session: [___] minutes. Explain why each session type fits this cycle phase."</div>
+  </div>
+
+  <div class="prompt-block">
+    <h4>🌿 Herbal Tea Blend</h4>
+    <div class="prompt-text">"I'm entering my [phase] phase. Suggest a herbal tea blend using traditional herbs that support this specific phase. Include how to make it, best time to drink it, and which herbs to use cautiously if I have [autoimmune concerns / thyroid issues / take medications]."</div>
+  </div>
+
+  <div class="prompt-block">
+    <h4>🔍 Symptom Pattern Reflection</h4>
+    <div class="prompt-text">"Help me understand patterns in my cycle. I consistently notice [symptoms] around cycle day [range]. What might be the hormonal or nutritional root? What should I explore first, and what questions should I bring to a healthcare provider?"</div>
+  </div>
+
+  <div class="prompt-block">
+    <h4>👅 TCM Tongue Reading (upload your photo)</h4>
+    <div class="prompt-text">"Using Traditional Chinese Medicine educational principles only, describe possible patterns in my tongue photo. Look at color, coating, moisture, cracks, and zones. Explain what these patterns might suggest about digestion, circulation, energy, constitution (warm/cold), and menstrual health. I'm in my [phase] phase, cycle day [day]. Educational purposes only."</div>
+  </div>
+
+  <div class="prompt-block">
+    <h4>📓 Monthly Cycle Reflection</h4>
+    <div class="prompt-text">"I'm at the end of a cycle. Here's what I observed this month: [mood patterns, energy highs/lows, symptoms, foods that helped, what felt hard]. Help me reflect on what supported me, what depleted me, what patterns I notice, and set one clear intention for my next cycle."</div>
+  </div>
+</div>
+
+<!-- ══ MONTHLY TRACKER ══ -->
+<div class="tracker-page">
+  <div class="section-header">
+    <div class="s-eyebrow">✦ Tracking Page</div>
+    <h2 class="s-title">Monthly<br><em>Cycle Tracker</em></h2>
+  </div>
+
+  <!-- Phase calculator -->
+  <div style="background:#fff;border-radius:12px;padding:16px 18px;border:1px solid var(--border);margin-bottom:20px;" class="no-print-hide">
+    <div style="font-size:0.6rem;letter-spacing:0.16em;text-transform:uppercase;color:var(--rose);margin-bottom:10px;">✦ Phase Calculator — Auto-fill your tracker</div>
+    <div style="display:flex;gap:12px;align-items:center;flex-wrap:wrap;">
+      <div>
+        <label style="font-size:0.68rem;color:var(--dim);display:block;margin-bottom:4px;">Day 1 of your last period:</label>
+        <input type="date" id="day1-input" style="padding:8px 12px;border:1.5px solid var(--border);border-radius:8px;font-size:0.78rem;color:var(--text);background:var(--bg);outline:none;">
+      </div>
+      <div>
+        <label style="font-size:0.68rem;color:var(--dim);display:block;margin-bottom:4px;">Cycle length (days):</label>
+        <input type="number" id="cycle-length" value="28" min="21" max="42" style="padding:8px 12px;border:1.5px solid var(--border);border-radius:8px;font-size:0.78rem;color:var(--text);background:var(--bg);outline:none;width:80px;">
+      </div>
+      <button onclick="calculatePhases()" style="background:var(--rose);color:#fff;border:none;border-radius:20px;padding:9px 20px;font-size:0.76rem;font-weight:500;cursor:pointer;margin-top:16px;">Auto-Fill Phases →</button>
+      <button onclick="resetTracker()" style="background:transparent;color:var(--dim);border:1px solid var(--border);border-radius:20px;padding:9px 16px;font-size:0.74rem;cursor:pointer;margin-top:16px;">Reset</button>
+    </div>
+    <p style="font-size:0.65rem;color:var(--light);margin-top:10px;line-height:1.6;">Click "Auto-Fill" to color-code your grid based on typical phase lengths. Then click any cell to manually adjust the phase. Changes are saved automatically. <strong style="color:var(--rose);">Click any day cell to cycle through phases manually.</strong></p>
+  </div>
+
+  <div class="tracker-key">
+    <div class="key-item"><div class="key-dot kd-m"></div>Menstrual · Click to mark</div>
+    <div class="key-item"><div class="key-dot kd-f"></div>Follicular</div>
+    <div class="key-item"><div class="key-dot kd-o"></div>Ovulatory</div>
+    <div class="key-item"><div class="key-dot kd-l"></div>Luteal</div>
+  </div>
+
+  <div style="display:flex;gap:20px;margin-bottom:16px;flex-wrap:wrap;font-size:0.72rem;color:var(--dim);">
+    <div class="tracker-month-line" id="month-display">Month: ___________________</div>
+    <div class="tracker-month-line">Cycle Length: _____________</div>
+  </div>
+
+  <!-- 35-cell grid — JS builds and makes interactive -->
+  <div class="cycle-grid" id="cycle-grid"></div>
+
+  <p style="font-size:0.65rem;color:var(--light);text-align:center;margin-top:6px;">Click any cell to mark its phase · Use the calculator above to auto-fill · Changes save automatically in your browser</p>
+
+  <!-- Daily log -->
+  <h3 style="font-family:'Cormorant Garamond',serif;font-size:1.1rem;color:var(--text);margin:28px 0 12px;">Daily Symptom Log</h3>
+  <table class="log-table">
+    <thead>
+      <tr>
+        <th class="log-dot-col">Phase</th>
+        <th>Day</th>
+        <th>Energy 1–10</th>
+        <th>Mood</th>
+        <th>Sleep</th>
+        <th>Symptoms / Notes</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td class="log-dot-col"><div class="log-dot"></div></td><td></td><td></td><td></td><td></td><td></td></tr>
+      <tr><td class="log-dot-col"><div class="log-dot"></div></td><td></td><td></td><td></td><td></td><td></td></tr>
+      <tr><td class="log-dot-col"><div class="log-dot"></div></td><td></td><td></td><td></td><td></td><td></td></tr>
+      <tr><td class="log-dot-col"><div class="log-dot"></div></td><td></td><td></td><td></td><td></td><td></td></tr>
+      <tr><td class="log-dot-col"><div class="log-dot"></div></td><td></td><td></td><td></td><td></td><td></td></tr>
+      <tr><td class="log-dot-col"><div class="log-dot"></div></td><td></td><td></td><td></td><td></td><td></td></tr>
+      <tr><td class="log-dot-col"><div class="log-dot"></div></td><td></td><td></td><td></td><td></td><td></td></tr>
+      <tr><td class="log-dot-col"><div class="log-dot"></div></td><td></td><td></td><td></td><td></td><td></td></tr>
+      <tr><td class="log-dot-col"><div class="log-dot"></div></td><td></td><td></td><td></td><td></td><td></td></tr>
+      <tr><td class="log-dot-col"><div class="log-dot"></div></td><td></td><td></td><td></td><td></td><td></td></tr>
+      <tr><td class="log-dot-col"><div class="log-dot"></div></td><td></td><td></td><td></td><td></td><td></td></tr>
+      <tr><td class="log-dot-col"><div class="log-dot"></div></td><td></td><td></td><td></td><td></td><td></td></tr>
+      <tr><td class="log-dot-col"><div class="log-dot"></div></td><td></td><td></td><td></td><td></td><td></td></tr>
+      <tr><td class="log-dot-col"><div class="log-dot"></div></td><td></td><td></td><td></td><td></td><td></td></tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- ══ GROCERY TEMPLATES ══ -->
+<div class="grocery-page">
+  <div class="section-header">
+    <div class="s-eyebrow">✦ Phase Shopping Lists</div>
+    <h2 class="s-title">Grocery Templates<br><em>by Phase</em></h2>
+    <p class="s-sub">Shop the day before your next phase begins. These lists are designed for one person and can be scaled. Check off as you shop. Everything is gluten-free friendly.</p>
+  </div>
+
+  <!-- Menstrual list -->
+  <div style="margin-bottom:32px;">
+    <div class="grocery-header">
+      <div class="grocery-phase-icon gpi-m">🩸</div>
+      <div>
+        <div class="grocery-phase-name gn-m">Menstrual Phase Grocery List</div>
+        <div class="grocery-sub">Days 1–5 · Shop: _____________ · Budget: _____________</div>
+      </div>
+    </div>
+    <div class="grocery-cols">
+      <div>
+        <h4>Produce</h4>
+        <ul class="check-list">
+          <li><div class="checkbox"></div>Spinach or kale</li>
+          <li><div class="checkbox"></div>Sweet potatoes (2–3)</li>
+          <li><div class="checkbox"></div>Beets (1–2)</li>
+          <li><div class="checkbox"></div>Carrots</li>
+          <li><div class="checkbox"></div>Ginger (small piece)</li>
+          <li><div class="checkbox"></div>Lemon (2)</li>
+          <li><div class="checkbox"></div>Berries (or frozen)</li>
+          <li><div class="checkbox"></div>Avocado (1–2)</li>
+          <li><div class="checkbox"></div>________________</li>
+        </ul>
+      </div>
+      <div>
+        <h4>Protein + Fridge</h4>
+        <ul class="check-list">
+          <li><div class="checkbox"></div>Red meat or bison</li>
+          <li><div class="checkbox"></div>Eggs</li>
+          <li><div class="checkbox"></div>Bone broth (carton)</li>
+          <li><div class="checkbox"></div>________________</li>
+          <li><div class="checkbox"></div>________________</li>
+        </ul>
+        <h4 style="margin-top:12px;">Pantry + Herbs</h4>
+        <ul class="check-list">
+          <li><div class="checkbox"></div>Turmeric</li>
+          <li><div class="checkbox"></div>Dark chocolate 70%+</li>
+          <li><div class="checkbox"></div>Nettle leaf tea</li>
+          <li><div class="checkbox"></div>Raspberry leaf tea</li>
+          <li><div class="checkbox"></div>Chamomile tea</li>
+          <li><div class="checkbox"></div>________________</li>
+        </ul>
+      </div>
+      <div>
+        <h4>Grains + Other</h4>
+        <ul class="check-list">
+          <li><div class="checkbox"></div>Quinoa or GF oats</li>
+          <li><div class="checkbox"></div>________________</li>
+          <li><div class="checkbox"></div>________________</li>
+        </ul>
+        <div class="grocery-notes" style="margin-top:12px;">
+          <div class="grocery-notes-label">Notes / swaps</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Luteal list (most needed - PMS phase) -->
+  <div style="margin-bottom:32px;">
+    <div class="grocery-header">
+      <div class="grocery-phase-icon gpi-l">🍂</div>
+      <div>
+        <div class="grocery-phase-name gn-l">Luteal Phase Grocery List</div>
+        <div class="grocery-sub">Days 18–28 · Shop: _____________ · Budget: _____________</div>
+      </div>
+    </div>
+    <div class="grocery-cols">
+      <div>
+        <h4>Produce</h4>
+        <ul class="check-list">
+          <li><div class="checkbox"></div>Sweet potatoes (3)</li>
+          <li><div class="checkbox"></div>Carrots (raw — daily)</li>
+          <li><div class="checkbox"></div>Zucchini (2)</li>
+          <li><div class="checkbox"></div>Spinach or kale</li>
+          <li><div class="checkbox"></div>Apples (for caramel)</li>
+          <li><div class="checkbox"></div>Avocados (2–3)</li>
+          <li><div class="checkbox"></div>Lemons (2)</li>
+          <li><div class="checkbox"></div>________________</li>
+        </ul>
+      </div>
+      <div>
+        <h4>Protein + Fridge</h4>
+        <ul class="check-list">
+          <li><div class="checkbox"></div>Chicken thighs or turkey</li>
+          <li><div class="checkbox"></div>Eggs</li>
+          <li><div class="checkbox"></div>Greek yogurt</li>
+          <li><div class="checkbox"></div>Feta cheese</li>
+          <li><div class="checkbox"></div>Hummus</li>
+          <li><div class="checkbox"></div>________________</li>
+        </ul>
+        <h4 style="margin-top:12px;">Pantry + Treats</h4>
+        <ul class="check-list">
+          <li><div class="checkbox"></div>Pumpkin seeds</li>
+          <li><div class="checkbox"></div>Almonds</li>
+          <li><div class="checkbox"></div>Dark chocolate 70%+</li>
+          <li><div class="checkbox"></div>Condensed milk (caramel)</li>
+          <li><div class="checkbox"></div>Dates or figs</li>
+          <li><div class="checkbox"></div>Chia seeds</li>
+          <li><div class="checkbox"></div>________________</li>
+        </ul>
+      </div>
+      <div>
+        <h4>Herbs + Tea</h4>
+        <ul class="check-list">
+          <li><div class="checkbox"></div>Chamomile tea</li>
+          <li><div class="checkbox"></div>Raspberry leaf</li>
+          <li><div class="checkbox"></div>Lemon balm</li>
+          <li><div class="checkbox"></div>________________</li>
+        </ul>
+        <h4 style="margin-top:12px;">Grains</h4>
+        <ul class="check-list">
+          <li><div class="checkbox"></div>Quinoa</li>
+          <li><div class="checkbox"></div>GF tortillas</li>
+          <li><div class="checkbox"></div>________________</li>
+        </ul>
+        <div class="grocery-notes" style="margin-top:12px;">
+          <div class="grocery-notes-label">Notes / swaps</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══ MONTHLY REFLECTION ══ -->
+<div class="reflection-page">
+  <div class="section-header">
+    <div class="s-eyebrow">✦ End-of-Cycle Practice</div>
+    <h2 class="s-title">Monthly<br><em>Cycle Reflection</em></h2>
+    <p class="s-sub">Use this at the end of each cycle — ideally during your luteal phase, before your period arrives. Paste the "Monthly Cycle Reflection" AI prompt for a deeper guided version.</p>
+  </div>
+
+  <div style="margin-bottom:14px;font-size:0.7rem;color:var(--light);">Month: ___________________ &nbsp;&nbsp; Cycle Length This Month: ___________</div>
+
+  <div class="reflection-grid">
+    <div class="r-block">
+      <h4>What supported me most this cycle</h4>
+      <p class="r-prompt">Foods, habits, movement, herbs, rest, relationships...</p>
+      <div class="r-lines"><div class="r-line"></div><div class="r-line"></div><div class="r-line"></div><div class="r-line"></div><div class="r-line"></div><div class="r-line"></div></div>
+    </div>
+    <div class="r-block">
+      <h4>What depleted me this cycle</h4>
+      <p class="r-prompt">Stressors, foods, overcommitments, sleep issues...</p>
+      <div class="r-lines"><div class="r-line"></div><div class="r-line"></div><div class="r-line"></div><div class="r-line"></div><div class="r-line"></div><div class="r-line"></div></div>
+    </div>
+    <div class="r-block">
+      <h4>Patterns I noticed</h4>
+      <p class="r-prompt">Energy patterns, symptom timing, mood cycles...</p>
+      <div class="r-lines"><div class="r-line"></div><div class="r-line"></div><div class="r-line"></div><div class="r-line"></div><div class="r-line"></div><div class="r-line"></div></div>
+    </div>
+    <div class="r-block">
+      <h4>One intention for next cycle</h4>
+      <p class="r-prompt">One specific thing to try, change, or prioritize...</p>
+      <div class="r-lines"><div class="r-line"></div><div class="r-line"></div><div class="r-line"></div><div class="r-line"></div><div class="r-line"></div><div class="r-line"></div></div>
+    </div>
+    <div class="r-block" style="grid-column:1/-1;">
+      <h4>Phase that felt best / worst this month and why</h4>
+      <div class="r-lines"><div class="r-line"></div><div class="r-line"></div><div class="r-line"></div><div class="r-line"></div></div>
+    </div>
+  </div>
+
+  <div class="guide-quote" style="margin-top:32px;">
+    <p>"The goal isn't perfect hormones.<br>The goal is understanding your body well enough to support it —<br>and building the self-trust that comes from paying attention."<br><br>— Maddie Galloway · Cycle Harmony · EAUCO</p>
+  </div>
+
+  <div style="text-align:center;margin-top:32px;padding:24px;border:1px solid var(--border);border-radius:12px;background:#fff;">
+    <div style="font-size:0.62rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--rose);margin-bottom:10px;">✦ Want this personalized and automatic?</div>
+    <p style="font-family:'Cormorant Garamond',serif;font-size:1.3rem;color:var(--text);margin-bottom:8px;">Join My Rhythm</p>
+    <p style="font-size:0.75rem;color:var(--dim);line-height:1.8;max-width:400px;margin:0 auto;">Your personalized cycle dashboard: daily phase guidance, food + herb recommendations, movement suggestions, pattern tracking, and a full AI prompt library — all built around your unique cycle.</p>
+    <div style="display:flex;gap:12px;justify-content:center;margin-top:16px;flex-wrap:wrap;">
+      <a href="https://buy.stripe.com/00w28s7OOdOYeF21Gg4ow04" target="_blank" style="background:var(--rose);color:#fff;text-decoration:none;padding:10px 22px;border-radius:20px;font-size:0.76rem;font-weight:500;">Start Monthly — $8.88</a>
+      <a href="https://buy.stripe.com/8x27sM0mm9yI2Wk98I4ow05" target="_blank" style="background:transparent;color:var(--rose);text-decoration:none;padding:10px 22px;border-radius:20px;font-size:0.76rem;font-weight:500;border:1.5px solid var(--rose);">✦ Annual — $77/year (save $29)</a>
+    </div>
+  </div>
+
+  <p style="text-align:center;font-size:0.65rem;color:var(--light);margin-top:24px;line-height:1.8;">Educational content only. Not medical advice. Created by Maddie Galloway &amp; Chloe · EAUCO · ElevateAlign.com<br>For personal use only. Please share the link, not the file: eauco-mads.github.io/cycle-harmony</p>
+</div>
+
+</div><!-- end .guide -->
+
+<script>
+// ── PHASE CONFIG ──
+const PHASES = ['', 'menstrual', 'follicular', 'ovulatory', 'luteal'];
+const PHASE_BG = {
+  menstrual:  '#fce8f0',
+  follicular: '#e4f2e8',
+  ovulatory:  '#fef0d8',
+  luteal:     '#f0e4f8'
+};
+const PHASE_BORDER = {
+  menstrual:  '#8a4060',
+  follicular: '#5e8c6a',
+  ovulatory:  '#b87840',
+  luteal:     '#7a5a80'
+};
+const PHASE_LABEL = {
+  menstrual:  '🩸',
+  follicular: '🌱',
+  ovulatory:  '☀️',
+  luteal:     '🍂'
+};
+
+// ── BUILD GRID ──
+function buildGrid() {
+  const grid = document.getElementById('cycle-grid');
+  grid.innerHTML = '';
+  for (let d = 1; d <= 35; d++) {
+    const cell = document.createElement('div');
+    cell.className = 'cycle-cell';
+    cell.dataset.day = d;
+    cell.style.cursor = 'pointer';
+    cell.title = 'Click to mark phase';
+    cell.innerHTML = `
+      <div class="cycle-cell-day" style="font-size:0.55rem;opacity:0.5;" id="cell-date-${d}"></div>
+      <div class="cycle-cell-num">${d}</div>
+      <div class="cell-phase-icon" style="font-size:0.75rem;min-height:16px;margin:3px 0;"></div>
+      <div style="margin-top:4px;">
+        <div style="border-bottom:1px solid #f0e8ec;height:8px;margin-bottom:3px;"></div>
+        <div style="border-bottom:1px solid #f0e8ec;height:8px;"></div>
+      </div>`;
+    cell.addEventListener('click', () => cyclePhase(cell, d));
+    grid.appendChild(cell);
+    loadCellState(cell, d);
+  }
+}
+
+function cyclePhase(cell, day) {
+  const current = cell.dataset.phase || '';
+  const idx = PHASES.indexOf(current);
+  const next = PHASES[(idx + 1) % PHASES.length];
+  applyPhase(cell, next);
+  localStorage.setItem(`ch-tracker-day-${day}`, next);
+}
+
+function applyPhase(cell, phase) {
+  cell.dataset.phase = phase;
+  const icon = cell.querySelector('.cell-phase-icon');
+  if (phase) {
+    cell.style.background = PHASE_BG[phase];
+    cell.style.borderColor = PHASE_BORDER[phase];
+    icon.textContent = PHASE_LABEL[phase];
+  } else {
+    cell.style.background = '';
+    cell.style.borderColor = '';
+    icon.textContent = '';
+  }
+}
+
+function loadCellState(cell, day) {
+  const saved = localStorage.getItem(`ch-tracker-day-${day}`);
+  if (saved && PHASES.includes(saved)) applyPhase(cell, saved);
+}
+
+// ── PHASE CALCULATOR ──
+function calculatePhases() {
+  const input = document.getElementById('day1-input').value;
+  const cycleLen = parseInt(document.getElementById('cycle-length').value) || 28;
+  if (!input) { alert('Please enter your Day 1 date first.'); return; }
+
+  const day1 = new Date(input + 'T00:00:00');
+  const months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+
+  document.getElementById('month-display').textContent =
+    `Month: ${months[day1.getMonth()]} ${day1.getFullYear()}`;
+
+  document.querySelectorAll('.cycle-cell').forEach(cell => {
+    const d = parseInt(cell.dataset.day);
+
+    // Calculate date for this cell
+    const cellDate = new Date(day1);
+    cellDate.setDate(day1.getDate() + d - 1);
+    const dateLabel = cell.querySelector(`#cell-date-${d}`) || cell.querySelector('.cycle-cell-day');
+    dateLabel.textContent = `${cellDate.getMonth()+1}/${cellDate.getDate()}`;
+
+    // Assign phase based on typical window
+    let phase = '';
+    const m = Math.round(cycleLen * 0.18);  // menstrual ~5 days
+    const f = Math.round(cycleLen * 0.27);  // follicular end ~day 13
+    const o = Math.round(cycleLen * 0.14);  // ovulatory ~4 days
+
+    if (d <= m) phase = 'menstrual';
+    else if (d <= m + f) phase = 'follicular';
+    else if (d <= m + f + o) phase = 'ovulatory';
+    else if (d <= cycleLen) phase = 'luteal';
+
+    applyPhase(cell, phase);
+    localStorage.setItem(`ch-tracker-day-${d}`, phase);
+  });
+}
+
+function resetTracker() {
+  if (!confirm('Reset all phase markings?')) return;
+  for (let d = 1; d <= 35; d++) localStorage.removeItem(`ch-tracker-day-${d}`);
+  document.getElementById('month-display').textContent = 'Month: ___________________';
+  document.querySelectorAll('.cycle-cell').forEach(cell => {
+    applyPhase(cell, '');
+    const dateLabel = cell.querySelector('.cycle-cell-day');
+    if (dateLabel) dateLabel.textContent = '';
+  });
+}
+
+// ── INIT ──
+buildGrid();
+</script>
+</body>
+</html>

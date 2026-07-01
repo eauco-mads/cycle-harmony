@@ -1,0 +1,1117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>My Rhythm Dashboard · Cycle Harmony</title>
+<link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#b86080">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="My Rhythm">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --rose:    #b86080;
+  --rose-d:  #9e4e6a;
+  --rose-l:  #f0c8d8;
+  --rose-bg: #fff5f8;
+  --sage:    #5e8c6a;
+  --sage-bg: #f2f8f4;
+  --amber:   #b87840;
+  --amber-bg:#fff8f0;
+  --plum:    #7a5a80;
+  --plum-bg: #f4eef8;
+  --text:    #2e1a22;
+  --dim:     #5a3a48;
+  --light:   #9a7a88;
+  --bg:      #fdf8f5;
+  --card:    #ffffff;
+  --border:  #ead8e0;
+  --border-l:#f4eaee;
+  --shadow:  rgba(46,26,34,0.07);
+  /* phase colors */
+  --m: #8a4060; --m-bg: #fce8f0; --m-border: #e0b0c8;
+  --f: #5e8c6a; --f-bg: #e4f2e8; --f-border: #b0d4b8;
+  --o: #b87840; --o-bg: #fef0d8; --o-border: #e0c090;
+  --l: #7a5a80; --l-bg: #f0e4f8; --l-border: #c8a8d8;
+}
+*{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--text);line-height:1.6;min-height:100vh;}
+
+/* ── SETUP OVERLAY ── */
+.setup-overlay{position:fixed;inset:0;background:var(--bg);z-index:200;display:flex;align-items:center;justify-content:center;padding:24px;}
+.setup-card{background:var(--card);border-radius:20px;padding:48px 44px;max-width:500px;width:100%;box-shadow:0 8px 40px var(--shadow);border-top:3px solid var(--rose);}
+@media(max-width:480px){.setup-card{padding:32px 22px;}}
+.setup-card h2{font-family:'Cormorant Garamond',serif;font-size:1.9rem;font-weight:300;color:var(--text);margin-bottom:6px;line-height:1.2;}
+.setup-card h2 em{color:var(--rose);font-style:italic;}
+.setup-card p{font-size:0.8rem;color:var(--dim);line-height:1.8;margin-bottom:28px;}
+.setup-field{margin-bottom:18px;}
+.setup-field label{display:block;font-size:0.68rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--light);margin-bottom:6px;}
+.setup-field input, .setup-field select{width:100%;padding:12px 14px;border:1.5px solid var(--border);border-radius:10px;font-family:'Inter',sans-serif;font-size:0.85rem;color:var(--text);background:var(--bg);outline:none;transition:border-color 0.2s;}
+.setup-field input:focus, .setup-field select:focus{border-color:var(--rose);background:#fff;}
+.setup-field .field-hint{font-size:0.67rem;color:var(--light);margin-top:5px;line-height:1.6;}
+.setup-btn{width:100%;background:var(--rose);color:#fff;border:none;border-radius:30px;padding:14px;font-family:'Inter',sans-serif;font-size:0.88rem;font-weight:500;cursor:pointer;letter-spacing:0.04em;margin-top:8px;transition:all 0.2s;}
+.setup-btn:hover{background:var(--rose-d);}
+.setup-eyebrow{font-size:0.6rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--rose);margin-bottom:14px;}
+
+/* ── NAV ── */
+.dash-nav{background:var(--card);border-bottom:1px solid var(--border);padding:0 24px;display:flex;align-items:stretch;justify-content:space-between;position:sticky;top:0;z-index:100;}
+.dash-nav-brand{font-family:'Cormorant Garamond',serif;font-size:1.05rem;color:var(--rose);display:flex;align-items:center;gap:6px;padding:14px 0;}
+.dash-nav-user{font-size:0.72rem;color:var(--light);display:flex;align-items:center;gap:10px;}
+.dash-nav-user span{color:var(--dim);}
+.edit-setup-link{font-size:0.68rem;color:var(--rose);cursor:pointer;text-decoration:underline;text-underline-offset:2px;}
+.dash-tabs{display:flex;align-items:stretch;gap:0;}
+.dash-tab{padding:16px 18px;font-size:0.72rem;font-weight:500;color:var(--light);cursor:pointer;border-bottom:2px solid transparent;transition:all 0.2s;letter-spacing:0.03em;white-space:nowrap;}
+.dash-tab:hover{color:var(--rose);}
+.dash-tab.active{color:var(--rose);border-bottom-color:var(--rose);}
+@media(max-width:600px){.dash-tab{padding:14px 12px;font-size:0.67rem;}}
+@media(max-width:420px){.dash-tabs{overflow-x:auto;}.dash-tab{padding:14px 10px;font-size:0.65rem;}}
+
+/* ── PHASE BANNER ── */
+.phase-banner{padding:24px;border-bottom:1px solid var(--border);}
+.phase-banner.phase-m{background:linear-gradient(135deg,var(--m-bg),#fff);}
+.phase-banner.phase-f{background:linear-gradient(135deg,var(--f-bg),#fff);}
+.phase-banner.phase-o{background:linear-gradient(135deg,var(--o-bg),#fff);}
+.phase-banner.phase-l{background:linear-gradient(135deg,var(--l-bg),#fff);}
+.phase-banner-inner{max-width:860px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:14px;}
+.phase-info{display:flex;align-items:center;gap:16px;}
+.phase-pill{padding:6px 16px;border-radius:20px;font-size:0.62rem;letter-spacing:0.14em;text-transform:uppercase;font-weight:600;}
+.phase-m .phase-pill{background:var(--m-bg);color:var(--m);border:1px solid var(--m-border);}
+.phase-f .phase-pill{background:var(--f-bg);color:var(--f);border:1px solid var(--f-border);}
+.phase-o .phase-pill{background:var(--o-bg);color:var(--o);border:1px solid var(--o-border);}
+.phase-l .phase-pill{background:var(--l-bg);color:var(--l);border:1px solid var(--l-border);}
+.phase-greeting{font-family:'Cormorant Garamond',serif;font-size:1.4rem;font-weight:300;color:var(--text);}
+.phase-greeting em{font-style:italic;}
+.phase-meta{font-size:0.7rem;color:var(--light);}
+.phase-season{font-family:'Cormorant Garamond',serif;font-size:0.9rem;font-style:italic;}
+.phase-m .phase-season{color:var(--m);}
+.phase-f .phase-season{color:var(--f);}
+.phase-o .phase-season{color:var(--o);}
+.phase-l .phase-season{color:var(--l);}
+
+/* ── VIEWS ── */
+.view{display:none;max-width:900px;margin:0 auto;padding:28px 20px 60px;}
+.view.active{display:block;}
+
+/* ── TODAY VIEW ── */
+.today-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
+@media(max-width:640px){.today-grid{grid-template-columns:1fr;}}
+.d-card{background:var(--card);border-radius:14px;padding:20px 18px;border:1px solid var(--border);}
+.d-card-label{font-size:0.58rem;letter-spacing:0.16em;text-transform:uppercase;color:var(--light);margin-bottom:8px;}
+.d-card h3{font-family:'Cormorant Garamond',serif;font-size:1.1rem;color:var(--text);margin-bottom:6px;}
+.d-card p{font-size:0.78rem;color:var(--dim);line-height:1.8;}
+.d-card-full{grid-column:1/-1;}
+.d-card-phase{border-left:3px solid;}
+.phase-m .d-card-phase,.d-card-phase.phase-m-card{border-color:var(--m);}
+.phase-f .d-card-phase,.d-card-phase.phase-f-card{border-color:var(--f);}
+.phase-o .d-card-phase,.d-card-phase.phase-o-card{border-color:var(--o);}
+.phase-l .d-card-phase,.d-card-phase.phase-l-card{border-color:var(--l);}
+.tag-list{display:flex;flex-wrap:wrap;gap:6px;margin-top:10px;}
+.tag{background:var(--bg);border:1px solid var(--border);border-radius:20px;padding:3px 10px;font-size:0.68rem;color:var(--dim);}
+.prompt-box{background:var(--bg);border-left:3px solid var(--rose);border-radius:0 10px 10px 0;padding:12px 14px;font-size:0.74rem;color:var(--dim);line-height:1.75;font-style:italic;margin-top:10px;cursor:pointer;position:relative;}
+.prompt-box::after{content:'Click to copy';position:absolute;top:8px;right:10px;font-size:0.6rem;color:var(--rose);opacity:0.7;font-style:normal;}
+.prompt-box.copied::after{content:'Copied!';color:var(--sage);}
+.quick-checkin{background:linear-gradient(135deg,var(--rose-bg),#fff);border-radius:14px;padding:20px 18px;border:1px dashed var(--rose-l);grid-column:1/-1;}
+.quick-checkin h3{font-family:'Cormorant Garamond',serif;font-size:1rem;color:var(--text);margin-bottom:14px;}
+.energy-row{display:flex;gap:6px;margin-bottom:12px;flex-wrap:wrap;}
+.energy-btn{width:36px;height:36px;border-radius:50%;border:1.5px solid var(--border);background:var(--card);font-size:0.78rem;font-weight:500;cursor:pointer;transition:all 0.15s;color:var(--dim);}
+.energy-btn:hover,.energy-btn.sel{background:var(--rose);color:#fff;border-color:var(--rose);}
+.mood-row{display:flex;gap:8px;margin-bottom:12px;flex-wrap:wrap;}
+.mood-btn{padding:5px 12px;border-radius:20px;border:1.5px solid var(--border);background:var(--card);font-size:0.72rem;cursor:pointer;transition:all 0.15s;color:var(--dim);}
+.mood-btn:hover,.mood-btn.sel{background:var(--rose);color:#fff;border-color:var(--rose);}
+.quick-note{width:100%;padding:10px 12px;border:1.5px solid var(--border);border-radius:10px;font-family:'Inter',sans-serif;font-size:0.8rem;color:var(--text);background:var(--bg);resize:none;outline:none;margin-bottom:10px;}
+.quick-note:focus{border-color:var(--rose);}
+.save-checkin-btn{background:var(--rose);color:#fff;border:none;border-radius:20px;padding:9px 22px;font-size:0.78rem;font-weight:500;cursor:pointer;transition:all 0.2s;}
+.save-checkin-btn:hover{background:var(--rose-d);}
+.saved-msg{font-size:0.72rem;color:var(--sage);margin-left:10px;opacity:0;}
+.saved-msg.show{opacity:1;}
+.today-section-title{font-family:'Cormorant Garamond',serif;font-size:1.1rem;font-weight:300;color:var(--text);margin:28px 0 14px;padding-bottom:8px;border-bottom:1px solid var(--border);}
+
+/* ── HISTORY VIEW ── */
+.history-months{display:flex;flex-direction:column;gap:28px;}
+.month-block{background:var(--card);border-radius:14px;padding:20px 18px;border:1px solid var(--border);}
+.month-title{font-family:'Cormorant Garamond',serif;font-size:1rem;color:var(--text);margin-bottom:14px;}
+.mini-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:4px;}
+.mini-cell{border-radius:6px;padding:5px 2px;text-align:center;font-size:0.6rem;color:var(--light);min-height:40px;background:var(--bg);border:1px solid var(--border-l);cursor:default;position:relative;}
+.mini-cell.has-data{cursor:pointer;}
+.mini-cell.phase-m-cell{background:var(--m-bg);border-color:var(--m-border);color:var(--m);}
+.mini-cell.phase-f-cell{background:var(--f-bg);border-color:var(--f-border);color:var(--f);}
+.mini-cell.phase-o-cell{background:var(--o-bg);border-color:var(--o-border);color:var(--o);}
+.mini-cell.phase-l-cell{background:var(--l-bg);border-color:var(--l-border);color:var(--l);}
+.mini-cell.today-cell{outline:2px solid var(--rose);outline-offset:1px;}
+.mini-day{font-size:0.58rem;font-weight:500;}
+.mini-energy{font-size:0.62rem;margin-top:1px;color:inherit;opacity:0.8;}
+.history-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:24px;}
+@media(max-width:500px){.history-stats{grid-template-columns:1fr 1fr;}}
+.stat-card{background:var(--card);border-radius:12px;padding:16px 14px;border:1px solid var(--border);text-align:center;}
+.stat-num{font-family:'Cormorant Garamond',serif;font-size:2rem;font-weight:300;color:var(--rose);}
+.stat-label{font-size:0.65rem;color:var(--light);letter-spacing:0.08em;text-transform:uppercase;}
+.log-list{display:flex;flex-direction:column;gap:10px;margin-top:20px;}
+.log-entry{background:var(--card);border-radius:10px;padding:14px 16px;border:1px solid var(--border);display:flex;align-items:flex-start;gap:12px;}
+.log-phase-dot{width:10px;height:10px;border-radius:50%;flex-shrink:0;margin-top:4px;}
+.log-dot-m{background:var(--m);}
+.log-dot-f{background:var(--f);}
+.log-dot-o{background:var(--o);}
+.log-dot-l{background:var(--l);}
+.log-date{font-size:0.7rem;color:var(--light);margin-bottom:3px;}
+.log-detail{font-size:0.78rem;color:var(--dim);line-height:1.65;}
+.log-note{font-size:0.74rem;color:var(--dim);font-style:italic;margin-top:4px;}
+.no-data-msg{text-align:center;padding:40px 20px;color:var(--light);font-size:0.82rem;font-style:italic;}
+
+/* ── INSIGHTS VIEW ── */
+.insight-card{background:var(--card);border-radius:14px;padding:20px 18px;border:1px solid var(--border);margin-bottom:14px;}
+.insight-card h4{font-family:'Cormorant Garamond',serif;font-size:1rem;color:var(--text);margin-bottom:8px;}
+.insight-card p{font-size:0.78rem;color:var(--dim);line-height:1.8;}
+.energy-bars{display:flex;gap:3px;align-items:flex-end;height:60px;margin-top:10px;}
+.e-bar-wrap{flex:1;display:flex;flex-direction:column;align-items:center;gap:3px;}
+.e-bar{width:100%;background:var(--rose);border-radius:4px 4px 0 0;min-height:4px;transition:height 0.3s;}
+.e-bar-label{font-size:0.55rem;color:var(--light);}
+
+/* ── PROFILE / SETUP INLINE ── */
+.profile-view .setup-card{box-shadow:none;border:1px solid var(--border);padding:28px;}
+.profile-view .setup-card h2{font-size:1.5rem;}
+
+/* ── EMPTY STATE ── */
+.empty-state{text-align:center;padding:48px 20px;}
+.empty-state h3{font-family:'Cormorant Garamond',serif;font-size:1.4rem;color:var(--text);margin-bottom:8px;}
+.empty-state p{font-size:0.8rem;color:var(--dim);line-height:1.8;max-width:340px;margin:0 auto 20px;}
+.es-btn{background:var(--rose);color:#fff;border:none;border-radius:20px;padding:10px 22px;font-size:0.8rem;font-weight:500;cursor:pointer;}
+</style>
+</head>
+<body>
+
+<!-- ══ FIRST-TIME SETUP OVERLAY ══ -->
+<div class="setup-overlay" id="setup-overlay" style="display:none;">
+  <div class="setup-card">
+    <div class="setup-eyebrow">✦ My Rhythm · Welcome</div>
+    <h2>Let's set up<br><em>your dashboard.</em></h2>
+    <p>This takes 60 seconds and only happens once. Your data stays private on your device.</p>
+
+    <div class="setup-field">
+      <label>Your first name</label>
+      <input type="text" id="setup-name" placeholder="e.g. Maddie" autocomplete="given-name">
+    </div>
+    <div class="setup-field">
+      <label>Day 1 of your most recent period</label>
+      <input type="date" id="setup-day1">
+      <div class="field-hint">Day 1 = first day of full bleeding. Estimate is fine.</div>
+    </div>
+    <div class="setup-field">
+      <label>Average cycle length (days)</label>
+      <select id="setup-cycle-length">
+        <option value="21">21 days</option>
+        <option value="22">22 days</option>
+        <option value="23">23 days</option>
+        <option value="24">24 days</option>
+        <option value="25">25 days</option>
+        <option value="26">26 days</option>
+        <option value="27">27 days</option>
+        <option value="28" selected>28 days (average)</option>
+        <option value="29">29 days</option>
+        <option value="30">30 days</option>
+        <option value="31">31 days</option>
+        <option value="32">32 days</option>
+        <option value="33">33 days</option>
+        <option value="34">34 days</option>
+        <option value="35">35 days</option>
+      </select>
+      <div class="field-hint">Not sure? Choose 28 — you can update this anytime.</div>
+    </div>
+    <button class="setup-btn" onclick="saveSetup()">✦ Set Up My Dashboard →</button>
+  </div>
+</div>
+
+<!-- ══ DASHBOARD ══ -->
+<div id="dashboard" style="display:none;">
+
+  <!-- NAV -->
+  <nav class="dash-nav">
+    <div style="display:flex;align-items:center;gap:20px;flex-shrink:0;">
+      <div class="dash-nav-brand">✦ My Rhythm</div>
+      <div class="dash-tabs">
+        <div class="dash-tab active" onclick="showView('today',this)">Today</div>
+        <div class="dash-tab" onclick="showView('history',this)">History</div>
+        <div class="dash-tab" onclick="showView('insights',this)">Insights</div>
+        <div class="dash-tab" onclick="showView('profile',this)">Profile</div>
+      </div>
+    </div>
+    <div class="dash-nav-user">
+      <span id="nav-name"></span>
+      <span class="edit-setup-link" onclick="showView('profile',null)">Edit</span>
+    </div>
+  </nav>
+
+  <!-- PHASE BANNER -->
+  <div class="phase-banner" id="phase-banner">
+    <div class="phase-banner-inner">
+      <div class="phase-info">
+        <span class="phase-pill" id="phase-pill">—</span>
+        <div>
+          <div class="phase-greeting" id="phase-greeting">Good morning.</div>
+          <div class="phase-meta" id="phase-meta"></div>
+        </div>
+      </div>
+      <div style="text-align:right;">
+        <div class="phase-season" id="phase-season"></div>
+        <div class="phase-meta" id="phase-cycle-day"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- TODAY VIEW -->
+  <div class="view active" id="view-today">
+    <div class="today-grid">
+
+      <!-- Phase focus card -->
+      <div class="d-card d-card-phase" id="today-focus-card">
+        <div class="d-card-label">Your Phase Focus</div>
+        <h3 id="today-focus-title"></h3>
+        <p id="today-focus-body"></p>
+      </div>
+
+      <!-- One small thing -->
+      <div class="d-card">
+        <div class="d-card-label">Start Small Today</div>
+        <h3 id="today-small-title"></h3>
+        <p id="today-small-body"></p>
+      </div>
+
+      <!-- Food today -->
+      <div class="d-card">
+        <div class="d-card-label">Food Focus</div>
+        <h3 id="today-food-title"></h3>
+        <p id="today-food-body"></p>
+        <div class="tag-list" id="today-food-tags"></div>
+      </div>
+
+      <!-- Herbs today -->
+      <div class="d-card">
+        <div class="d-card-label">Herb Support</div>
+        <h3 id="today-herb-title"></h3>
+        <p id="today-herb-body"></p>
+        <div class="tag-list" id="today-herb-tags"></div>
+      </div>
+
+      <!-- Movement -->
+      <div class="d-card">
+        <div class="d-card-label">Movement</div>
+        <h3 id="today-move-title"></h3>
+        <p id="today-move-body"></p>
+      </div>
+
+      <!-- Scheduling -->
+      <div class="d-card">
+        <div class="d-card-label">Work + Schedule</div>
+        <h3 id="today-work-title"></h3>
+        <p id="today-work-body"></p>
+      </div>
+
+      <!-- AI Prompt -->
+      <div class="d-card d-card-full">
+        <div class="d-card-label">Free Prompt — Copy into Claude or ChatGPT</div>
+        <h3 id="today-prompt-title"></h3>
+        <div class="prompt-box" id="today-prompt" onclick="copyPrompt(this)"></div>
+      </div>
+
+      <!-- Quick check-in -->
+      <div class="quick-checkin">
+        <h3>Today's Check-In</h3>
+        <div id="checkin-done-msg" style="display:none;font-size:0.8rem;color:var(--sage);padding:10px 0;">✦ Check-in saved for today. Come back tomorrow!</div>
+        <div id="checkin-form">
+          <div class="d-card-label" style="margin-bottom:8px;">Energy today (1 = depleted · 10 = peak)</div>
+          <div class="energy-row" id="energy-btns"></div>
+          <div class="d-card-label" style="margin:12px 0 8px;">Mood</div>
+          <div class="mood-row">
+            <div class="mood-btn" onclick="selectMood(this)">✨ Clear</div>
+            <div class="mood-btn" onclick="selectMood(this)">😌 Calm</div>
+            <div class="mood-btn" onclick="selectMood(this)">😤 Irritable</div>
+            <div class="mood-btn" onclick="selectMood(this)">😢 Emotional</div>
+            <div class="mood-btn" onclick="selectMood(this)">🔥 Motivated</div>
+            <div class="mood-btn" onclick="selectMood(this)">😴 Tired</div>
+            <div class="mood-btn" onclick="selectMood(this)">💫 Creative</div>
+            <div class="mood-btn" onclick="selectMood(this)">😰 Anxious</div>
+          </div>
+          <div class="d-card-label" style="margin:12px 0 8px;">A note (optional)</div>
+          <textarea class="quick-note" id="checkin-note" rows="2" placeholder="How are you feeling? What worked today? Anything to remember..."></textarea>
+          <div style="display:flex;align-items:center;">
+            <button class="save-checkin-btn" onclick="saveCheckin()">Save Today's Check-In</button>
+            <span class="saved-msg" id="saved-msg">Saved ✦</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div><!-- /today -->
+
+  <!-- HISTORY VIEW -->
+  <div class="view" id="view-history">
+    <h2 class="today-section-title" style="margin-top:0;">Your Cycle History</h2>
+    <div class="history-stats" id="history-stats"></div>
+    <div class="log-list" id="log-list"></div>
+    <div class="no-data-msg" id="no-data-msg" style="display:none;">No check-ins yet. Complete your first one on the Today tab!</div>
+  </div>
+
+  <!-- INSIGHTS VIEW -->
+  <div class="view" id="view-insights">
+    <h2 class="today-section-title" style="margin-top:0;">Your Patterns</h2>
+    <div id="insights-content"></div>
+  </div>
+
+  <!-- PROFILE VIEW -->
+  <div class="view profile-view" id="view-profile">
+    <h2 class="today-section-title" style="margin-top:0;">Your Profile</h2>
+    <div class="setup-card" style="max-width:480px;">
+      <div class="setup-field">
+        <label>Your first name</label>
+        <input type="text" id="edit-name">
+      </div>
+      <div class="setup-field">
+        <label>Day 1 of most recent period</label>
+        <input type="date" id="edit-day1">
+        <div class="field-hint">Update this each time your new period starts to keep your phase accurate.</div>
+      </div>
+      <div class="setup-field">
+        <label>Average cycle length</label>
+        <select id="edit-cycle-length">
+          <option value="21">21 days</option><option value="22">22 days</option>
+          <option value="23">23 days</option><option value="24">24 days</option>
+          <option value="25">25 days</option><option value="26">26 days</option>
+          <option value="27">27 days</option><option value="28">28 days</option>
+          <option value="29">29 days</option><option value="30">30 days</option>
+          <option value="31">31 days</option><option value="32">32 days</option>
+          <option value="33">33 days</option><option value="34">34 days</option>
+          <option value="35">35 days</option>
+        </select>
+      </div>
+      <button class="setup-btn" onclick="saveProfile()">Save Changes</button>
+      <p style="font-size:0.68rem;color:var(--light);margin-top:14px;line-height:1.7;">Your data is stored privately in your browser. To access from another device, export your data below.</p>
+      <div style="margin-top:14px;display:flex;gap:10px;flex-wrap:wrap;">
+        <button onclick="exportData()" style="background:transparent;color:var(--rose);border:1px solid var(--rose);border-radius:20px;padding:8px 16px;font-size:0.72rem;cursor:pointer;">Export My Data</button>
+        <button onclick="confirmClear()" style="background:transparent;color:var(--light);border:1px solid var(--border);border-radius:20px;padding:8px 16px;font-size:0.72rem;cursor:pointer;">Clear All Data</button>
+      </div>
+      <div style="margin-top:20px;padding-top:16px;border-top:1px solid var(--border);">
+        <div style="font-size:0.62rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--light);margin-bottom:6px;">My Rhythm Membership</div>
+        <p style="font-size:0.75rem;color:var(--dim);line-height:1.75;">Manage your subscription: <a href="https://billing.stripe.com/p/login/test_00w28s7OOdOYeF2" target="_blank" style="color:var(--rose);">Stripe Customer Portal →</a></p>
+      </div>
+    </div>
+  </div>
+
+</div><!-- /dashboard -->
+
+<script>
+// ── PHASE DATA ──
+const PHASES = {
+  menstrual: {
+    name: 'Menstrual',
+    season: '✦ Winter',
+    class: 'phase-m',
+    focusTitle: 'Rest. Restore. Release.',
+    focusBody: 'Your body is doing significant work. Energy is biologically lower right now — not because something is wrong, but because your system is turning inward. Rest without guilt. This is a productive phase even when it doesn\'t feel like it.',
+    smallTitle: 'Wear socks today.',
+    smallBody: 'Warm feet = warm pelvis. Drink something warm instead of cold. Let yourself be slow. These two things are enough for today.',
+    foodTitle: 'Iron + warmth',
+    foodBody: 'Prioritize warm, cooked foods. Cold foods and drinks can increase cramping. Iron-rich foods help replace what you\'re losing.',
+    foodTags: ['Spinach + kale','Bone broth','Sweet potato','Beets','Dark chocolate 70%+','Ginger tea'],
+    herbTitle: 'Raspberry Leaf + Chamomile',
+    herbBody: 'Raspberry leaf supports uterine muscle tone and eases cramping. Chamomile is anti-inflammatory and calming. Together they\'re the go-to menstrual tea.',
+    herbTags: ['Raspberry Leaf','Chamomile','Nettle','Lemon Balm'],
+    moveTitle: 'Gentle only.',
+    moveBody: 'Walk, stretch, restorative yoga, or rest completely. This is not the time to push. If you feel okay on Day 4-5, light movement is fine. Listen to what your body actually wants.',
+    workTitle: 'Protect your schedule.',
+    workBody: 'Cancel or postpone non-essential commitments if you can. Do the minimum required. Your nervous system needs less input right now — not more. Journaling and reflection are naturally productive here.',
+    promptTitle: 'Menstrual Phase Support',
+    prompt: 'I\'m in my menstrual phase (cycle day [DAY]). I want a day plan that prioritizes rest and restoration. Suggest: 3 warm meal ideas, a gentle 20-minute movement option, and one meaningful way to spend quiet time today. Keep suggestions simple, warm, and low-effort. Gluten-free preferred.'
+  },
+  follicular: {
+    name: 'Follicular',
+    season: '✦ Spring',
+    class: 'phase-f',
+    focusTitle: 'Energy rising. Build.',
+    focusBody: 'Estrogen is climbing. Your mood is lifting, motivation is building, and your brain is genuinely sharper right now. This is the best phase for starting things, learning, and physical training. Use this window intentionally.',
+    smallTitle: 'Start the thing.',
+    smallBody: 'The project you\'ve been putting off, the call you need to make, the workout program you wanted to try — begin it now. Your threshold for new things is at its highest.',
+    foodTitle: 'Fresh + light + protein',
+    foodBody: 'Your digestion is stronger and your energy is building. Lean toward lighter, fresher foods and solid protein to support strength gains.',
+    foodTags: ['Salmon + eggs','Broccoli + kale','Quinoa','Sauerkraut + kimchi','Avocado','Berries'],
+    herbTitle: 'Shatavari + Nettle',
+    herbBody: 'Shatavari supports healthy estrogen balance as it rises. Nettle provides the minerals to fuel your building energy. A morning tea or supplement works well here.',
+    herbTags: ['Shatavari','Nettle Leaf','Cordyceps','Spearmint'],
+    moveTitle: 'Build strength.',
+    moveBody: 'This is your window for increasing intensity — strength training, HIIT, trying a new class. Your body adapts and recovers faster in this phase. Take advantage of it.',
+    workTitle: 'Start and create.',
+    workBody: 'Schedule new projects, brainstorming sessions, and creative work here. Your brain is generating ideas and making connections faster. This is your thinking and starting phase.',
+    promptTitle: 'Follicular Phase Meal Plan',
+    prompt: 'I\'m in my follicular phase (cycle day [DAY]). Create a 5-day meal plan that supports rising estrogen and building energy. Focus on: fresh foods, quality protein, cruciferous vegetables, and fermented foods. Gluten-free. Include a simple weekly prep tip. Keep meals practical for someone with a busy schedule.'
+  },
+  ovulatory: {
+    name: 'Ovulatory',
+    season: '✦ Summer',
+    class: 'phase-o',
+    focusTitle: 'Peak. Connect. Show up.',
+    focusBody: 'Estrogen has peaked. LH is surging. Natural confidence, communication ease, and social magnetism are at their highest point in your cycle. This window is short — schedule what matters here.',
+    smallTitle: 'Make the call.',
+    smallBody: 'The conversation you\'ve been avoiding, the ask you\'ve been rehearsing, the connection you want to make — do it today. You are at your most articulate and magnetic right now.',
+    foodTitle: 'Antioxidants + light',
+    foodBody: 'Lighter foods match your peak energy. Antioxidants support egg quality and protect against the oxidative stress that comes with ovulation.',
+    foodTags: ['Berries + pomegranate','Arugula salad','Flaxseed (daily)','Salmon','Avocado','Hibiscus tea'],
+    herbTitle: 'Shatavari + Holy Basil',
+    herbBody: 'Continue shatavari to support healthy ovulation. Holy Basil keeps cortisol balanced so the stress of your busy schedule doesn\'t disrupt this important window.',
+    herbTags: ['Shatavari','Holy Basil','Nettle','Hibiscus'],
+    moveTitle: 'Go hard.',
+    moveBody: 'Peak workouts, personal records, high-intensity training. Your body is at its physical peak and recovers fastest in this phase. Schedule your most demanding sessions here.',
+    workTitle: 'Big meetings. Bold asks.',
+    workBody: 'Presentations, negotiations, difficult conversations, networking. Your verbal fluency and confidence are highest. Batch your high-stakes social and professional moments into this phase whenever possible.',
+    promptTitle: 'Ovulatory Phase Workout',
+    prompt: 'I\'m in my ovulatory phase (cycle day [DAY]) — peak energy and strength. Design a 5-day workout plan that maximizes this window. I want to push hard and make progress. Goals: [your goals]. Equipment available: [your equipment]. Include session length and why each workout fits this phase.'
+  },
+  luteal: {
+    name: 'Luteal',
+    season: '✦ Autumn',
+    class: 'phase-l',
+    focusTitle: 'Nourish. Finish. Ground.',
+    focusBody: 'Progesterone is rising and energy is drawing inward. This phase is excellent for completing, organizing, and detail work. As it progresses toward your period, nourishment becomes critical — most PMS symptoms have a nutritional root, not a hormonal inevitability.',
+    smallTitle: 'Eat a raw carrot today.',
+    smallBody: 'One raw carrot daily in the luteal phase helps your liver bind and eliminate excess estrogen before your period — reducing PMS, bloating, and mood swings. Simple, daily, and it works.',
+    foodTitle: 'Magnesium + complex carbs',
+    foodBody: 'Complex carbs stabilize mood and blood sugar as progesterone rises. Magnesium-rich foods ease cramps and breast tenderness before they start.',
+    foodTags: ['Sweet potato','Raw carrot (daily)','Pumpkin seeds','Dark chocolate','Almonds','Bone broth'],
+    herbTitle: 'Vitex + Magnesium + Lemon Balm',
+    herbBody: 'Vitex supports progesterone production in the luteal phase (take for 3+ months to feel the difference). Magnesium glycinate at night reduces PMS dramatically. Lemon balm calms evening irritability.',
+    herbTags: ['Vitex (Chaste Tree)','Magnesium Glycinate','Lemon Balm','Chamomile','Reishi'],
+    moveTitle: 'Slow and steady.',
+    moveBody: 'Pilates, yoga, walking, swimming. Match your intensity to your actual energy — not what you think it should be. Fighting your luteal energy with intense workouts depletes you faster. Honor the slow.',
+    workTitle: 'Finish. Organize. Say no.',
+    workBody: 'This phase is excellent for editing, completing projects, admin tasks, and deep focused work. Protect your capacity — say no to non-essential social plans. Your threshold is genuinely lower and that\'s not a character flaw.',
+    promptTitle: 'Luteal Phase Support Plan',
+    prompt: 'I\'m in my luteal phase (cycle day [DAY]). I want a nourishing week plan that supports progesterone and reduces PMS. Include: 5 magnesium-rich meal ideas, a gentle movement schedule, one evening wind-down routine, and the most important supplements for this phase. Gluten-free. Be specific and practical.'
+  }
+};
+
+// ── UTILITY ──
+function getToday() {
+  return new Date().toISOString().split('T')[0];
+}
+
+function formatDate(str) {
+  const d = new Date(str + 'T00:00:00');
+  return d.toLocaleDateString('en-US', { weekday:'short', month:'short', day:'numeric' });
+}
+
+function getGreeting() {
+  const h = new Date().getHours();
+  if (h < 12) return 'Good morning';
+  if (h < 17) return 'Good afternoon';
+  return 'Good evening';
+}
+
+// ── PHASE CALCULATION ──
+function getCurrentPhaseData(profile) {
+  const day1 = new Date(profile.day1 + 'T00:00:00');
+  const today = new Date();
+  today.setHours(0,0,0,0);
+  const cl = parseInt(profile.cycleLength) || 28;
+  let daysSince = Math.floor((today - day1) / 86400000);
+  if (daysSince < 0) daysSince = 0;
+  const cycleDay = (daysSince % cl) + 1;
+  const m = Math.max(4, Math.round(cl * 0.18));
+  const f = Math.round(cl * 0.27);
+  const o = Math.max(3, Math.round(cl * 0.14));
+  let phase;
+  if (cycleDay <= m) phase = 'menstrual';
+  else if (cycleDay <= m + f) phase = 'follicular';
+  else if (cycleDay <= m + f + o) phase = 'ovulatory';
+  else phase = 'luteal';
+  return { phase, cycleDay, cycleLength: cl };
+}
+
+function getPhaseForDate(dateStr, profile) {
+  const day1 = new Date(profile.day1 + 'T00:00:00');
+  const d = new Date(dateStr + 'T00:00:00');
+  const cl = parseInt(profile.cycleLength) || 28;
+  let diff = Math.floor((d - day1) / 86400000);
+  if (diff < 0) return null;
+  const cycleDay = (diff % cl) + 1;
+  const m = Math.max(4, Math.round(cl * 0.18));
+  const f = Math.round(cl * 0.27);
+  const o = Math.max(3, Math.round(cl * 0.14));
+  if (cycleDay <= m) return 'menstrual';
+  if (cycleDay <= m + f) return 'follicular';
+  if (cycleDay <= m + f + o) return 'ovulatory';
+  return 'luteal';
+}
+
+// ── STORAGE ──
+function getProfile() { return JSON.parse(localStorage.getItem('myr-profile') || 'null'); }
+function saveProfileData(p) { localStorage.setItem('myr-profile', JSON.stringify(p)); }
+function getCheckins() { return JSON.parse(localStorage.getItem('myr-checkins') || '{}'); }
+function saveCheckins(c) { localStorage.setItem('myr-checkins', JSON.stringify(c)); }
+
+// ── SETUP ──
+function saveSetup() {
+  const name = document.getElementById('setup-name').value.trim();
+  const day1 = document.getElementById('setup-day1').value;
+  const cl = document.getElementById('setup-cycle-length').value;
+  if (!name) { alert('Please enter your name.'); return; }
+  if (!day1) { alert('Please enter your Day 1 date.'); return; }
+  saveProfileData({ name, day1, cycleLength: cl });
+  document.getElementById('setup-overlay').style.display = 'none';
+  document.getElementById('dashboard').style.display = 'block';
+  initDashboard();
+}
+
+function saveProfile() {
+  const p = getProfile() || {};
+  p.name = document.getElementById('edit-name').value.trim() || p.name;
+  p.day1 = document.getElementById('edit-day1').value || p.day1;
+  p.cycleLength = document.getElementById('edit-cycle-length').value;
+  saveProfileData(p);
+  initDashboard();
+  showView('today', document.querySelector('.dash-tab'));
+  alert('Profile saved!');
+}
+
+// ── INIT ──
+function initDashboard() {
+  const profile = getProfile();
+  if (!profile) {
+    document.getElementById('setup-day1').value = getToday();
+    document.getElementById('setup-overlay').style.display = 'flex';
+    document.getElementById('dashboard').style.display = 'none';
+    return;
+  }
+  document.getElementById('dashboard').style.display = 'block';
+  document.getElementById('setup-overlay').style.display = 'none';
+
+  const { phase, cycleDay, cycleLength } = getCurrentPhaseData(profile);
+  const pd = PHASES[phase];
+
+  // Nav name
+  document.getElementById('nav-name').textContent = profile.name;
+
+  // Phase banner
+  const banner = document.getElementById('phase-banner');
+  banner.className = 'phase-banner ' + pd.class;
+  document.getElementById('phase-pill').textContent = pd.name + ' Phase';
+  document.getElementById('phase-greeting').innerHTML = getGreeting() + ', <em>' + profile.name + '</em>';
+  document.getElementById('phase-meta').textContent = formatDate(getToday());
+  document.getElementById('phase-season').textContent = pd.season;
+  document.getElementById('phase-cycle-day').textContent = 'Cycle Day ' + cycleDay + ' of ' + cycleLength;
+
+  // Today cards
+  document.getElementById('today-focus-card').className = 'd-card d-card-phase ' + pd.class + '-card';
+  document.getElementById('today-focus-title').textContent = pd.focusTitle;
+  document.getElementById('today-focus-body').textContent = pd.focusBody;
+  document.getElementById('today-small-title').textContent = pd.smallTitle;
+  document.getElementById('today-small-body').textContent = pd.smallBody;
+  document.getElementById('today-food-title').textContent = pd.foodTitle;
+  document.getElementById('today-food-body').textContent = pd.foodBody;
+  const foodTags = document.getElementById('today-food-tags');
+  foodTags.innerHTML = pd.foodTags.map(t => `<span class="tag">${t}</span>`).join('');
+  document.getElementById('today-herb-title').textContent = pd.herbTitle;
+  document.getElementById('today-herb-body').textContent = pd.herbBody;
+  const herbTags = document.getElementById('today-herb-tags');
+  herbTags.innerHTML = pd.herbTags.map(t => `<span class="tag">${t}</span>`).join('');
+  document.getElementById('today-move-title').textContent = pd.moveTitle;
+  document.getElementById('today-move-body').textContent = pd.moveBody;
+  document.getElementById('today-work-title').textContent = pd.workTitle;
+  document.getElementById('today-work-body').textContent = pd.workBody;
+  document.getElementById('today-prompt-title').textContent = pd.promptTitle;
+  document.getElementById('today-prompt').textContent = pd.prompt.replace('[DAY]', cycleDay);
+
+  // Energy buttons
+  const ebw = document.getElementById('energy-btns');
+  ebw.innerHTML = '';
+  for (let i = 1; i <= 10; i++) {
+    const b = document.createElement('button');
+    b.className = 'energy-btn';
+    b.textContent = i;
+    b.dataset.val = i;
+    b.onclick = () => {
+      ebw.querySelectorAll('.energy-btn').forEach(x => x.classList.remove('sel'));
+      b.classList.add('sel');
+    };
+    ebw.appendChild(b);
+  }
+
+  // Check if already checked in today
+  const checkins = getCheckins();
+  const today = getToday();
+  if (checkins[today]) {
+    document.getElementById('checkin-form').style.display = 'none';
+    document.getElementById('checkin-done-msg').style.display = 'block';
+  } else {
+    document.getElementById('checkin-form').style.display = 'block';
+    document.getElementById('checkin-done-msg').style.display = 'none';
+  }
+
+  // Profile edit fields
+  document.getElementById('edit-name').value = profile.name;
+  document.getElementById('edit-day1').value = profile.day1;
+  document.getElementById('edit-cycle-length').value = profile.cycleLength;
+
+  // Load history + insights
+  loadHistory();
+  loadInsights();
+}
+
+// ── CHECK-IN ──
+function selectMood(btn) {
+  document.querySelectorAll('.mood-btn').forEach(b => b.classList.remove('sel'));
+  btn.classList.add('sel');
+}
+
+function saveCheckin() {
+  const energyBtn = document.querySelector('.energy-btn.sel');
+  const moodBtn = document.querySelector('.mood-btn.sel');
+  const note = document.getElementById('checkin-note').value.trim();
+  if (!energyBtn) { alert('Please select an energy level.'); return; }
+
+  const profile = getProfile();
+  const { phase, cycleDay } = getCurrentPhaseData(profile);
+  const checkins = getCheckins();
+  const today = getToday();
+
+  checkins[today] = {
+    energy: parseInt(energyBtn.dataset.val),
+    mood: moodBtn ? moodBtn.textContent : '',
+    note,
+    phase,
+    cycleDay
+  };
+  saveCheckins(checkins);
+
+  document.getElementById('checkin-form').style.display = 'none';
+  document.getElementById('checkin-done-msg').style.display = 'block';
+  const msg = document.getElementById('saved-msg');
+  msg.classList.add('show');
+  setTimeout(() => msg.classList.remove('show'), 2000);
+  loadHistory();
+  loadInsights();
+}
+
+// ── HISTORY ──
+function loadHistory() {
+  const checkins = getCheckins();
+  const keys = Object.keys(checkins).sort().reverse();
+  const logList = document.getElementById('log-list');
+  const noData = document.getElementById('no-data-msg');
+  const stats = document.getElementById('history-stats');
+
+  if (keys.length === 0) {
+    logList.innerHTML = '';
+    noData.style.display = 'block';
+    stats.innerHTML = '';
+    return;
+  }
+  noData.style.display = 'none';
+
+  // Stats
+  const avgEnergy = (keys.reduce((s, k) => s + (checkins[k].energy || 0), 0) / keys.length).toFixed(1);
+  const phaseCount = {};
+  keys.forEach(k => { const p = checkins[k].phase; phaseCount[p] = (phaseCount[p]||0)+1; });
+  const bestPhase = Object.entries(phaseCount).sort((a,b)=>b[1]-a[1])[0];
+  stats.innerHTML = `
+    <div class="stat-card"><div class="stat-num">${keys.length}</div><div class="stat-label">Days Tracked</div></div>
+    <div class="stat-card"><div class="stat-num">${avgEnergy}</div><div class="stat-label">Avg Energy</div></div>
+    <div class="stat-card"><div class="stat-num">${bestPhase ? PHASES[bestPhase[0]].name.slice(0,3) : '—'}</div><div class="stat-label">Most Tracked Phase</div></div>`;
+
+  // Log entries
+  logList.innerHTML = keys.slice(0, 30).map(k => {
+    const c = checkins[k];
+    const pd = PHASES[c.phase] || PHASES.menstrual;
+    const phaseInitial = c.phase ? c.phase[0] : 'm';
+    return `<div class="log-entry">
+      <div class="log-phase-dot log-dot-${phaseInitial}"></div>
+      <div style="flex:1">
+        <div class="log-date">${formatDate(k)} · ${pd.name} Phase · Cycle Day ${c.cycleDay}</div>
+        <div class="log-detail">Energy: ${c.energy}/10 ${c.mood ? '· ' + c.mood : ''}</div>
+        ${c.note ? `<div class="log-note">"${c.note}"</div>` : ''}
+      </div>
+    </div>`;
+  }).join('');
+}
+
+// ── INSIGHTS ──
+function loadInsights() {
+  const checkins = getCheckins();
+  const keys = Object.keys(checkins);
+  const content = document.getElementById('insights-content');
+
+  if (keys.length < 3) {
+    content.innerHTML = `<div class="empty-state">
+      <h3>Keep tracking.</h3>
+      <p>Your patterns will appear here after a few more check-ins. Come back daily — even a minute of data collection compounds into real insight over time.</p>
+    </div>`;
+    return;
+  }
+
+  // Energy by phase
+  const byPhase = { menstrual:[], follicular:[], ovulatory:[], luteal:[] };
+  keys.forEach(k => {
+    const c = checkins[k];
+    if (c.phase && byPhase[c.phase]) byPhase[c.phase].push(c.energy);
+  });
+
+  const phaseAvg = {};
+  Object.entries(byPhase).forEach(([p, vals]) => {
+    phaseAvg[p] = vals.length ? (vals.reduce((a,b)=>a+b,0)/vals.length).toFixed(1) : null;
+  });
+
+  const best = Object.entries(phaseAvg).filter(x=>x[1]).sort((a,b)=>b[1]-a[1])[0];
+  const lowest = Object.entries(phaseAvg).filter(x=>x[1]).sort((a,b)=>a[1]-b[1])[0];
+
+  // Mood frequency
+  const moodCount = {};
+  keys.forEach(k => {
+    const m = checkins[k].mood;
+    if (m) moodCount[m] = (moodCount[m]||0)+1;
+  });
+  const topMoods = Object.entries(moodCount).sort((a,b)=>b[1]-a[1]).slice(0,3);
+
+  content.innerHTML = `
+    <div class="insight-card">
+      <h4>Energy by Phase</h4>
+      <p>Based on your ${keys.length} check-ins so far.</p>
+      <div class="energy-bars">
+        ${['menstrual','follicular','ovulatory','luteal'].map(p => {
+          const avg = phaseAvg[p];
+          const height = avg ? Math.round((avg/10)*52) : 4;
+          const colors = {menstrual:'var(--m)',follicular:'var(--f)',ovulatory:'var(--o)',luteal:'var(--l)'};
+          return `<div class="e-bar-wrap">
+            <div class="e-bar" style="height:${height}px;background:${colors[p]};"></div>
+            <div class="e-bar-label">${avg || '—'}</div>
+            <div class="e-bar-label">${p.slice(0,3)}</div>
+          </div>`;
+        }).join('')}
+      </div>
+    </div>
+    ${best ? `<div class="insight-card">
+      <h4>Your highest energy phase: ${PHASES[best[0]].name}</h4>
+      <p>Average energy of <strong>${best[1]}/10</strong> in your ${PHASES[best[0]].name.toLowerCase()} phase. ${lowest && lowest[0]!==best[0] ? `Your lowest: ${PHASES[lowest[0]].name} at ${lowest[1]}/10.` : ''} Use this data to schedule your hardest work and most demanding commitments in your naturally higher-energy phases.</p>
+    </div>` : ''}
+    ${topMoods.length ? `<div class="insight-card">
+      <h4>Your most frequent moods</h4>
+      <div class="tag-list">${topMoods.map(([m,c])=>`<span class="tag">${m} (${c}x)</span>`).join('')}</div>
+      <p style="margin-top:10px;">As you track more cycles, you\'ll see whether specific moods cluster in specific phases — that pattern is where personalized adjustment becomes possible.</p>
+    </div>` : ''}
+    <div class="insight-card">
+      <h4>Reflection prompt</h4>
+      <p>Copy this into Claude or ChatGPT for a deeper pattern read:</p>
+      <div class="prompt-box" onclick="copyPrompt(this)" style="margin-top:10px;">I've been tracking my cycle for ${keys.length} days. Here's my data: ${keys.slice(-14).map(k=>`Day ${checkins[k].cycleDay} (${checkins[k].phase}): energy ${checkins[k].energy}/10, mood: ${checkins[k].mood||'not recorded'}`).join('; ')}. What patterns do you notice? What should I focus on to support myself better in each phase?</div>
+    </div>`;
+}
+
+// ── API CONFIG (Cloudflare Worker proxy — token lives on the server, not here) ──
+// Replace WORKER_URL below with your deployed Worker URL after following setup instructions
+const WORKER_URL = 'https://my-rhythm-api.eauco-mads.workers.dev';
+
+async function atGet(table, params='') {
+  const r = await fetch(`${WORKER_URL}/table/${encodeURIComponent(table)}?${params}`);
+  return r.json();
+}
+async function atPost(table, fields) {
+  const r = await fetch(`${WORKER_URL}/table/${encodeURIComponent(table)}`, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ records: [{ fields }] })
+  });
+  return r.json();
+}
+async function atPatch(table, recordId, fields) {
+  const r = await fetch(`${WORKER_URL}/table/${encodeURIComponent(table)}/${recordId}`, {
+    method: 'PATCH',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ fields })
+  });
+  return r.json();
+}
+
+// ── MEMBER ID (from URL ?m=xxx, persisted locally) ──
+function getMemberID() {
+  const params = new URLSearchParams(window.location.search);
+  const urlID = params.get('m');
+  if (urlID) { localStorage.setItem('myr-member-id', urlID); return urlID; }
+  return localStorage.getItem('myr-member-id');
+}
+function generateID() {
+  return 'myr-' + Math.random().toString(36).slice(2,9);
+}
+
+// ── AIRTABLE PROFILE ──
+async function loadProfileFromAirtable(memberID) {
+  const res = await atGet('Members', `filterByFormula=${encodeURIComponent(`{memberID}="${memberID}"`)}`);
+  if (res.records && res.records.length > 0) {
+    const f = res.records[0].fields;
+    return { name: f.name, day1: f.day1, cycleLength: f.cycleLength, _recordId: res.records[0].id };
+  }
+  return null;
+}
+async function saveProfileToAirtable(memberID, profile) {
+  const existing = await loadProfileFromAirtable(memberID);
+  if (existing) {
+    await atPatch('Members', existing._recordId, { name: profile.name, day1: profile.day1, cycleLength: parseInt(profile.cycleLength) });
+  } else {
+    await atPost('Members', { memberID, name: profile.name, day1: profile.day1, cycleLength: parseInt(profile.cycleLength) });
+  }
+}
+
+// ── AIRTABLE CHECKINS ──
+async function loadCheckinsFromAirtable(memberID) {
+  const res = await atGet('Checkins', `filterByFormula=${encodeURIComponent(`{memberID}="${memberID}"`)}&sort[0][field]=date&sort[0][direction]=desc&maxRecords=90`);
+  const checkins = {};
+  if (res.records) {
+    res.records.forEach(r => {
+      const f = r.fields;
+      if (f.date) checkins[f.date] = { energy: f.energy, mood: f.mood||'', note: f.note||'', phase: f.phase||'', cycleDay: f.cycleDay||0, _recordId: r.id };
+    });
+  }
+  return checkins;
+}
+async function saveCheckinToAirtable(memberID, date, data) {
+  // Check if exists first
+  const res = await atGet('Checkins', `filterByFormula=${encodeURIComponent(`AND({memberID}="${memberID}",{date}="${date}")`)}` );
+  if (res.records && res.records.length > 0) {
+    await atPatch('Checkins', res.records[0].id, { energy: data.energy, mood: data.mood, note: data.note, phase: data.phase, cycleDay: data.cycleDay });
+  } else {
+    await atPost('Checkins', { memberID, date, energy: data.energy, mood: data.mood||'', note: data.note||'', phase: data.phase, cycleDay: data.cycleDay });
+  }
+}
+
+// ── LOCAL CACHE (fallback + speed) ──
+function getProfile() { return JSON.parse(localStorage.getItem('myr-profile') || 'null'); }
+function cacheProfile(p) { localStorage.setItem('myr-profile', JSON.stringify(p)); }
+function getCheckins() { return JSON.parse(localStorage.getItem('myr-checkins') || '{}'); }
+function cacheCheckins(c) { localStorage.setItem('myr-checkins', JSON.stringify(c)); }
+
+// ── SETUP ──
+async function saveSetup() {
+  const name = document.getElementById('setup-name').value.trim();
+  const day1 = document.getElementById('setup-day1').value;
+  const cl   = document.getElementById('setup-cycle-length').value;
+  if (!name) { alert('Please enter your name.'); return; }
+  if (!day1) { alert('Please enter your Day 1 date.'); return; }
+
+  const btn = document.querySelector('.setup-btn');
+  btn.textContent = 'Saving...';
+  btn.disabled = true;
+
+  let memberID = getMemberID();
+  if (!memberID) { memberID = generateID(); localStorage.setItem('myr-member-id', memberID); }
+
+  const profile = { name, day1, cycleLength: cl };
+  cacheProfile(profile);
+
+  try {
+    await saveProfileToAirtable(memberID, profile);
+  } catch(e) { console.warn('Airtable save failed, using local cache', e); }
+
+  // Build the permanent bookmarkable URL
+  const dashURL = `${location.origin}${location.pathname}?m=${memberID}`;
+
+  document.getElementById('setup-overlay').innerHTML = `
+    <div class="setup-card">
+      <div class="setup-eyebrow">✦ You're all set, ${name}!</div>
+      <h2>Bookmark your<br><em>personal dashboard.</em></h2>
+      <p>This is your unique link. Bookmark it or save it — it works on any device, and all your data is saved to it.</p>
+      <div style="background:var(--bg);border-radius:10px;padding:14px;border:1px solid var(--border);word-break:break-all;font-size:0.75rem;color:var(--dim);margin-bottom:18px;">${dashURL}</div>
+      <button class="setup-btn" onclick="window.location.href='${dashURL}'">✦ Open My Dashboard →</button>
+      <p style="font-size:0.68rem;color:var(--light);margin-top:12px;line-height:1.7;">Your data is saved to the cloud — you won't lose it even if you clear your browser. Just come back to this URL anytime from any device.</p>
+    </div>`;
+}
+
+async function saveProfile() {
+  const memberID = getMemberID();
+  const p = getProfile() || {};
+  p.name = document.getElementById('edit-name').value.trim() || p.name;
+  p.day1 = document.getElementById('edit-day1').value || p.day1;
+  p.cycleLength = document.getElementById('edit-cycle-length').value;
+  cacheProfile(p);
+  try { await saveProfileToAirtable(memberID, p); } catch(e) { console.warn('Airtable error', e); }
+  initDashboard();
+  showView('today', document.querySelector('.dash-tab'));
+  alert('Profile saved!');
+}
+
+// ── CHECKIN SAVE ──
+async function saveCheckin() {
+  const energyBtn = document.querySelector('.energy-btn.sel');
+  const moodBtn   = document.querySelector('.mood-btn.sel');
+  const note      = document.getElementById('checkin-note').value.trim();
+  if (!energyBtn) { alert('Please select an energy level.'); return; }
+
+  const memberID = getMemberID();
+  const profile = getProfile();
+  const { phase, cycleDay } = getCurrentPhaseData(profile);
+  const today = getToday();
+  const data = { energy: parseInt(energyBtn.dataset.val), mood: moodBtn ? moodBtn.textContent : '', note, phase, cycleDay };
+
+  // Cache immediately
+  const checkins = getCheckins();
+  checkins[today] = data;
+  cacheCheckins(checkins);
+
+  document.getElementById('checkin-form').style.display = 'none';
+  document.getElementById('checkin-done-msg').style.display = 'block';
+
+  // Save to Airtable in background
+  try { await saveCheckinToAirtable(memberID, today, data); } catch(e) { console.warn('Airtable checkin error', e); }
+
+  loadHistory();
+  loadInsights();
+}
+
+// ── INIT ──
+async function initDashboard() {
+  const memberID = getMemberID();
+  if (!memberID) {
+    document.getElementById('setup-day1').value = getToday();
+    document.getElementById('setup-overlay').style.display = 'flex';
+    document.getElementById('dashboard').style.display = 'none';
+    return;
+  }
+
+  document.getElementById('dashboard').style.display = 'block';
+  document.getElementById('setup-overlay').style.display = 'none';
+
+  // Load profile — try cache first (fast), then sync from Airtable
+  let profile = getProfile();
+  if (!profile) {
+    try {
+      profile = await loadProfileFromAirtable(memberID);
+      if (profile) cacheProfile(profile);
+    } catch(e) { console.warn('Airtable load error', e); }
+  }
+  if (!profile) {
+    document.getElementById('setup-day1').value = getToday();
+    document.getElementById('setup-overlay').style.display = 'flex';
+    document.getElementById('dashboard').style.display = 'none';
+    return;
+  }
+
+  // Load checkins — cache first, then sync Airtable
+  try {
+    const atCheckins = await loadCheckinsFromAirtable(memberID);
+    if (Object.keys(atCheckins).length > 0) {
+      cacheCheckins(atCheckins);
+    }
+  } catch(e) { console.warn('Airtable checkins load error', e); }
+
+  const { phase, cycleDay, cycleLength } = getCurrentPhaseData(profile);
+  const pd = PHASES[phase];
+
+  document.getElementById('nav-name').textContent = profile.name;
+
+  const banner = document.getElementById('phase-banner');
+  banner.className = 'phase-banner ' + pd.class;
+  document.getElementById('phase-pill').textContent = pd.name + ' Phase';
+  document.getElementById('phase-greeting').innerHTML = getGreeting() + ', <em>' + profile.name + '</em>';
+  document.getElementById('phase-meta').textContent = formatDate(getToday());
+  document.getElementById('phase-season').textContent = pd.season;
+  document.getElementById('phase-cycle-day').textContent = 'Cycle Day ' + cycleDay + ' of ' + cycleLength;
+
+  document.getElementById('today-focus-card').className = 'd-card d-card-phase ' + pd.class + '-card';
+  document.getElementById('today-focus-title').textContent = pd.focusTitle;
+  document.getElementById('today-focus-body').textContent = pd.focusBody;
+  document.getElementById('today-small-title').textContent = pd.smallTitle;
+  document.getElementById('today-small-body').textContent = pd.smallBody;
+  document.getElementById('today-food-title').textContent = pd.foodTitle;
+  document.getElementById('today-food-body').textContent = pd.foodBody;
+  document.getElementById('today-food-tags').innerHTML = pd.foodTags.map(t=>`<span class="tag">${t}</span>`).join('');
+  document.getElementById('today-herb-title').textContent = pd.herbTitle;
+  document.getElementById('today-herb-body').textContent = pd.herbBody;
+  document.getElementById('today-herb-tags').innerHTML = pd.herbTags.map(t=>`<span class="tag">${t}</span>`).join('');
+  document.getElementById('today-move-title').textContent = pd.moveTitle;
+  document.getElementById('today-move-body').textContent = pd.moveBody;
+  document.getElementById('today-work-title').textContent = pd.workTitle;
+  document.getElementById('today-work-body').textContent = pd.workBody;
+  document.getElementById('today-prompt-title').textContent = pd.promptTitle;
+  document.getElementById('today-prompt').textContent = pd.prompt.replace('[DAY]', cycleDay);
+
+  const ebw = document.getElementById('energy-btns');
+  ebw.innerHTML = '';
+  for (let i=1; i<=10; i++) {
+    const b = document.createElement('button');
+    b.className = 'energy-btn'; b.textContent = i; b.dataset.val = i;
+    b.onclick = () => { ebw.querySelectorAll('.energy-btn').forEach(x=>x.classList.remove('sel')); b.classList.add('sel'); };
+    ebw.appendChild(b);
+  }
+
+  const checkins = getCheckins();
+  const today = getToday();
+  if (checkins[today]) {
+    document.getElementById('checkin-form').style.display = 'none';
+    document.getElementById('checkin-done-msg').style.display = 'block';
+  } else {
+    document.getElementById('checkin-form').style.display = 'block';
+    document.getElementById('checkin-done-msg').style.display = 'none';
+  }
+
+  document.getElementById('edit-name').value = profile.name;
+  document.getElementById('edit-day1').value = profile.day1;
+  document.getElementById('edit-cycle-length').value = profile.cycleLength;
+
+  loadHistory();
+  loadInsights();
+}
+
+// ── COPY PROMPT ──
+function copyPrompt(el) {
+  const text = el.textContent.replace('Click to copy','').replace('Copied!','').trim();
+  navigator.clipboard.writeText(text).then(() => {
+    el.classList.add('copied');
+    setTimeout(() => el.classList.remove('copied'), 2000);
+  });
+}
+
+// ── VIEW SWITCHING ──
+function showView(id, tab) {
+  document.querySelectorAll('.view').forEach(v => v.classList.remove('active'));
+  document.getElementById('view-' + id).classList.add('active');
+  if (tab) {
+    document.querySelectorAll('.dash-tab').forEach(t => t.classList.remove('active'));
+    tab.classList.add('active');
+  }
+}
+
+// ── DATA EXPORT ──
+function exportData() {
+  const data = { profile: getProfile(), checkins: getCheckins(), memberID: getMemberID(), exported: new Date().toISOString() };
+  const blob = new Blob([JSON.stringify(data, null, 2)], { type:'application/json' });
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(blob);
+  a.download = 'my-rhythm-data.json';
+  a.click();
+}
+
+function confirmClear() {
+  if (confirm('Clear all local cache? Your Airtable data is safe — this just refreshes your local copy.')) {
+    localStorage.removeItem('myr-checkins');
+    localStorage.removeItem('myr-profile');
+    loadHistory();
+    loadInsights();
+    alert('Local cache cleared. Reload to re-sync from Airtable.');
+  }
+}
+
+// ── MOOD + ENERGY UI ──
+function selectMood(btn) {
+  document.querySelectorAll('.mood-btn').forEach(b=>b.classList.remove('sel'));
+  btn.classList.add('sel');
+}
+
+// ── BOOT ──
+window.addEventListener('DOMContentLoaded', () => {
+  const memberID = getMemberID();
+  if (!memberID) {
+    document.getElementById('setup-day1').value = getToday();
+    document.getElementById('setup-overlay').style.display = 'flex';
+    document.getElementById('dashboard').style.display = 'none';
+  } else {
+    initDashboard();
+  }
+});
+</script>
+</body>
+</html>
