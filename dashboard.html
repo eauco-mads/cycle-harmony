@@ -392,6 +392,11 @@ body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--text);line-
         <button onclick="confirmClear()" style="background:transparent;color:var(--light);border:1px solid var(--border);border-radius:20px;padding:8px 16px;font-size:0.72rem;cursor:pointer;">Clear All Data</button>
       </div>
       <div style="margin-top:20px;padding-top:16px;border-top:1px solid var(--border);">
+        <div style="font-size:0.62rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--light);margin-bottom:6px;">Install as Phone App</div>
+        <p style="font-size:0.75rem;color:var(--dim);line-height:1.85;"><strong style="color:var(--text);font-weight:500;">iPhone:</strong> Open Safari → go to your dashboard URL → tap the <strong style="color:var(--text);font-weight:500;">Share button</strong> (box with arrow) → tap <strong style="color:var(--text);font-weight:500;">Add to Home Screen.</strong> It installs like an app with its own icon.</p>
+        <p style="font-size:0.75rem;color:var(--dim);line-height:1.85;margin-top:8px;"><strong style="color:var(--text);font-weight:500;">Android:</strong> Open Chrome → tap the three-dot menu → <strong style="color:var(--text);font-weight:500;">Add to Home Screen.</strong> Chrome may also show an install banner automatically.</p>
+      </div>
+      <div style="margin-top:20px;padding-top:16px;border-top:1px solid var(--border);">
         <div style="font-size:0.62rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--light);margin-bottom:6px;">My Rhythm Membership</div>
         <p style="font-size:0.75rem;color:var(--dim);line-height:1.75;">Manage your subscription: <a href="https://billing.stripe.com/p/login/test_00w28s7OOdOYeF2" target="_blank" style="color:var(--rose);">Stripe Customer Portal →</a></p>
       </div>
@@ -804,8 +809,7 @@ function loadInsights() {
 }
 
 // ── API CONFIG (Cloudflare Worker proxy — token lives on the server, not here) ──
-// Replace WORKER_URL below with your deployed Worker URL after following setup instructions
-const WORKER_URL = 'https://my-rhythm-api.eauco-mads.workers.dev';
+const WORKER_URL = 'https://my-rhythm-api.maddie-fda.workers.dev';
 
 async function atGet(table, params='') {
   const r = await fetch(`${WORKER_URL}/table/${encodeURIComponent(table)}?${params}`);
