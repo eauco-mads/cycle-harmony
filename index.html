@@ -1390,6 +1390,18 @@ async function handleGuideSubmit(e) {
     console.warn('Lead save failed, unlocking anyway', err);
   }
 
+  if (subscribed) {
+    try {
+      await fetch(`${LEADS_WORKER_URL}/subscribe`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ name, email })
+      });
+    } catch (err) {
+      console.warn('GHL subscribe failed', err);
+    }
+  }
+
   localStorage.setItem('ch-guide-unlocked', '1');
   btn.textContent = '✓ You\'re in!';
   btn.style.background = '#5e8c6a';
