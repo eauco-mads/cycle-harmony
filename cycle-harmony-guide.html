@@ -226,6 +226,11 @@ body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--text);line-
   a { text-decoration: none; color: inherit; }
 }
 </style>
+<script>
+if (localStorage.getItem('ch-guide-unlocked') !== '1') {
+  window.location.replace('index.html#ebook-form');
+}
+</script>
 </head>
 <body>
 

@@ -200,7 +200,15 @@ img{max-width:100%;display:block;}
 .foundation-card ul li:last-child{border-bottom:none;}
 .foundation-card ul li::before{content:'·';color:var(--rose-mid);}
 
-/* ── HERBS ── */
+/* ── READ MORE / ACCORDION ── */
+.readmore{margin-top:36px;border:1px solid var(--rose-light,var(--border));border-radius:14px;background:var(--card);overflow:hidden;}
+.readmore summary{cursor:pointer;list-style:none;padding:18px 24px;display:flex;align-items:center;justify-content:space-between;gap:12px;font-family:'Cormorant Garamond',serif;font-size:1.15rem;font-weight:300;color:var(--rose);user-select:none;}
+.readmore summary::-webkit-details-marker{display:none;}
+.readmore summary::after{content:'✦ Read more ▾';font-family:'Inter',sans-serif;font-size:0.68rem;letter-spacing:0.05em;text-transform:uppercase;color:var(--text-light);flex-shrink:0;transition:transform 0.2s;}
+.readmore[open] summary::after{content:'✦ Show less ▴';}
+.readmore summary:hover{background:var(--rose-bg,rgba(0,0,0,0.02));}
+.readmore-body{padding:4px 24px 28px;}
+
 .herbs-section{background:var(--sage-bg);padding:76px 24px;border-top:1px solid #c8dcc8;border-bottom:1px solid #c8dcc8;}
 .herbs-inner{max-width:920px;margin:0 auto;}
 .herbs-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:48px;}
@@ -417,10 +425,12 @@ footer a:hover{color:#fff;}
   <div class="nav-links">
     <a href="#start-here">Get Started</a>
     <a href="#phases">The Four Phases</a>
-    <a href="#herbs">Herbs</a>
-    <a href="#ai-prompts">Free Prompts</a>
-    <a href="cycle-harmony-guide.html" target="_blank">Free Guide PDF</a>
-    <a href="#dashboard" class="nav-cta">Join My Rhythm — from $8.88 →</a>
+    <a href="#foundations">Foundations</a>
+    <a href="#herbs">Herbs &amp; Wisdom</a>
+    <a href="#ebook">Free Guide</a>
+    <a href="#dashboard">My Rhythm</a>
+    <a href="#faq">FAQ</a>
+    <a href="#dashboard" class="nav-cta">Join — from $8.88 →</a>
   </div>
 </nav>
 
@@ -764,11 +774,11 @@ footer a:hover{color:#fff;}
         <span class="ebook-cover-icon">🌸</span>
         <h3>Hormone Harmony</h3>
         <div class="ebook-cover-sub">A Cycle Education Guide by<br>Maddie Galloway · EAUCO</div>
-        <span class="ebook-cover-tag">Free Download</span>
+        <span class="ebook-cover-tag">Free — No Cost, Ever</span>
         <div style="margin-top:18px;display:flex;flex-direction:column;gap:8px;">
-          <a href="#ebook-form" class="btn-primary" style="font-size:0.8rem;padding:12px 20px;">✦ Email Me the Guide</a>
-          <a href="cycle-harmony-guide.html" class="pdf-badge" target="_blank">🖨 Print-Ready PDF Version</a>
+          <a href="#ebook-form" class="btn-primary" style="font-size:0.8rem;padding:12px 20px;">✦ Unlock the Free Guide</a>
         </div>
+        <p style="font-size:0.65rem;color:var(--text-light);margin-top:10px;">Just your name + email to get in — no spam, ever.</p>
       </div>
       <div class="ebook-contents">
         <h4>What's Inside</h4>
@@ -814,7 +824,7 @@ footer a:hover{color:#fff;}
 </section>
 
 <!-- ── HORMONE FOUNDATIONS ── -->
-<section class="foundations-section">
+<section class="foundations-section" id="foundations">
   <div class="section-eyebrow" style="text-align:center;">✦ The Hormone Education Hub</div>
   <h2 class="section-title">Before adding more.<br><em>Support the foundations.</em></h2>
   <p class="section-sub">Most hormone imbalance isn't a mystery — it has roots. Cycle Harmony teaches you where to look first, starting with what you're already surrounded by.</p>
@@ -867,32 +877,36 @@ footer a:hover{color:#fff;}
     </div>
   </div>
 
-  <!-- Feminine rhythm section -->
-  <div style="margin-top:48px;background:linear-gradient(135deg,var(--rose-bg),var(--amber-bg));border-radius:18px;padding:36px 32px;border:1px solid var(--rose-light);text-align:center;">
-    <div style="font-size:0.62rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--rose-mid);margin-bottom:10px;">✦ A Core Teaching</div>
-    <h3 style="font-family:'Cormorant Garamond',serif;font-size:1.9rem;font-weight:300;color:var(--text);line-height:1.25;margin-bottom:16px;">Feminine Rhythm<br><em style="color:var(--rose);">in a Masculine World</em></h3>
-    <p style="max-width:560px;margin:0 auto 16px;font-size:0.86rem;color:var(--text-dim);line-height:1.85;">Modern culture rewards constant output, hustle, and linear productivity. It was designed around a body that runs on a 24-hour hormonal cycle. The female body runs on a 28-day one. You are not behind. You are not weak. You are not broken. The womb literally creates life. Your body carries intelligence that our culture has been taught to dismiss.</p>
-    <p style="max-width:560px;margin:0 auto;font-family:'Cormorant Garamond',serif;font-size:1.1rem;font-style:italic;color:var(--rose);line-height:1.65;">Rest is productive.<br>Slowing down is not weakness.<br>Extra rest doesn't mean you're falling behind.<br>It means you're listening.</p>
-  </div>
-
-  <!-- Bigger picture -->
-  <div style="margin-top:48px;">
-    <div class="section-eyebrow" style="text-align:center;">✦ The Bigger Picture</div>
-    <h2 class="section-title" style="text-align:center;">Your hormones don't live<br><em>in isolation.</em></h2>
-    <p class="section-sub" style="text-align:center;">They live inside a body that feels, a nervous system that responds, and a planet that moves in rhythm.</p>
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:28px;">
-      <div style="background:linear-gradient(135deg,var(--rose-bg),#fff);border-radius:14px;padding:22px;border:1px solid var(--rose-light);">
-        <div style="font-size:1.6rem;margin-bottom:8px;">🫀</div>
-        <h3 style="font-family:'Cormorant Garamond',serif;font-size:1rem;color:var(--text);margin-bottom:8px;">Hormones Respond to Emotions</h3>
-        <p style="font-size:0.77rem;color:var(--text-dim);line-height:1.75;">Every emotion you feel is a chemical event. Cortisol rises when you feel unsafe. Oxytocin flows when you feel loved. Progesterone drops when you're chronically stressed. Your feelings are not separate from your hormones — they are your hormones. Tending to how you feel is hormonal support work.</p>
+  <!-- Feminine rhythm + bigger picture (collapsed by default) -->
+  <details class="readmore">
+    <summary>✦ Go deeper: feminine rhythm &amp; the bigger picture</summary>
+    <div class="readmore-body">
+      <div style="background:linear-gradient(135deg,var(--rose-bg),var(--amber-bg));border-radius:18px;padding:36px 32px;border:1px solid var(--rose-light);text-align:center;">
+        <div style="font-size:0.62rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--rose-mid);margin-bottom:10px;">✦ A Core Teaching</div>
+        <h3 style="font-family:'Cormorant Garamond',serif;font-size:1.9rem;font-weight:300;color:var(--text);line-height:1.25;margin-bottom:16px;">Feminine Rhythm<br><em style="color:var(--rose);">in a Masculine World</em></h3>
+        <p style="max-width:560px;margin:0 auto 16px;font-size:0.86rem;color:var(--text-dim);line-height:1.85;">Modern culture rewards constant output, hustle, and linear productivity. It was designed around a body that runs on a 24-hour hormonal cycle. The female body runs on a 28-day one. You are not behind. You are not weak. You are not broken. The womb literally creates life. Your body carries intelligence that our culture has been taught to dismiss.</p>
+        <p style="max-width:560px;margin:0 auto;font-family:'Cormorant Garamond',serif;font-size:1.1rem;font-style:italic;color:var(--rose);line-height:1.65;">Rest is productive.<br>Slowing down is not weakness.<br>Extra rest doesn't mean you're falling behind.<br>It means you're listening.</p>
       </div>
-      <div style="background:linear-gradient(135deg,var(--sage-bg),#fff);border-radius:14px;padding:22px;border:1px solid #c8ddc8;">
-        <div style="font-size:1.6rem;margin-bottom:8px;">🌕</div>
-        <h3 style="font-family:'Cormorant Garamond',serif;font-size:1rem;color:var(--text);margin-bottom:8px;">Your Cycle and the Moon</h3>
-        <p style="font-size:0.77rem;color:var(--text-dim);line-height:1.75;">Before artificial light, women's cycles naturally synced with the lunar cycle — bleeding with the new moon, ovulating with the full moon. New moon energy mirrors menstruation: dark, inward, releasing. Full moon mirrors ovulation: peak, illuminated, magnetic. Tracking both reveals a larger rhythm you've always been part of.</p>
+
+      <div style="margin-top:48px;">
+        <div class="section-eyebrow" style="text-align:center;">✦ The Bigger Picture</div>
+        <h2 class="section-title" style="text-align:center;">Your hormones don't live<br><em>in isolation.</em></h2>
+        <p class="section-sub" style="text-align:center;">They live inside a body that feels, a nervous system that responds, and a planet that moves in rhythm.</p>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:28px;">
+          <div style="background:linear-gradient(135deg,var(--rose-bg),#fff);border-radius:14px;padding:22px;border:1px solid var(--rose-light);">
+            <div style="font-size:1.6rem;margin-bottom:8px;">🫀</div>
+            <h3 style="font-family:'Cormorant Garamond',serif;font-size:1rem;color:var(--text);margin-bottom:8px;">Hormones Respond to Emotions</h3>
+            <p style="font-size:0.77rem;color:var(--text-dim);line-height:1.75;">Every emotion you feel is a chemical event. Cortisol rises when you feel unsafe. Oxytocin flows when you feel loved. Progesterone drops when you're chronically stressed. Your feelings are not separate from your hormones — they are your hormones. Tending to how you feel is hormonal support work.</p>
+          </div>
+          <div style="background:linear-gradient(135deg,var(--sage-bg),#fff);border-radius:14px;padding:22px;border:1px solid #c8ddc8;">
+            <div style="font-size:1.6rem;margin-bottom:8px;">🌕</div>
+            <h3 style="font-family:'Cormorant Garamond',serif;font-size:1rem;color:var(--text);margin-bottom:8px;">Your Cycle and the Moon</h3>
+            <p style="font-size:0.77rem;color:var(--text-dim);line-height:1.75;">Before artificial light, women's cycles naturally synced with the lunar cycle — bleeding with the new moon, ovulating with the full moon. New moon energy mirrors menstruation: dark, inward, releasing. Full moon mirrors ovulation: peak, illuminated, magnetic. Tracking both reveals a larger rhythm you've always been part of.</p>
+          </div>
+        </div>
       </div>
     </div>
-  </div>
+  </details>
 </section>
 
 <!-- ── HERBS ── -->
@@ -952,35 +966,39 @@ footer a:hover{color:#fff;}
       </div>
     </div>
 
-    <!-- Adaptogens note -->
-    <div class="adaptogens-note">
-      <div class="adaptogen-item">
-        <h4>🍄 Reishi Mushroom</h4>
-        <p>The "mushroom of immortality" in TCM. Immune-modulating (not stimulating — ideal for autoimmune types), deeply calming, prebiotic for gut health. Best taken in the evening. Works beautifully with lemon balm.</p>
-      </div>
-      <div class="adaptogen-item">
-        <h4>⚡ Cordyceps</h4>
-        <p>Energy, endurance, and blood sugar balance. Supports stamina without spiking cortisol. A good daytime adaptogen to pair with your active phases (follicular + ovulatory). Also prebiotic-supportive for gut health.</p>
-      </div>
-      <div class="adaptogen-item">
-        <h4>🌿 Holy Basil (daily)</h4>
-        <p>Unlike ashwagandha, holy basil modulates rather than stimulates the immune system — making it the preferred adaptogen if you have autoimmune considerations. Cortisol-calming, anti-inflammatory, and gentle enough for daily use every cycle phase.</p>
-      </div>
-    </div>
+    <!-- Adaptogens + daily blend (collapsed by default) -->
+    <details class="readmore">
+      <summary>✦ Go deeper: adaptogens &amp; the daily blend recipe</summary>
+      <div class="readmore-body">
+        <div class="adaptogens-note">
+          <div class="adaptogen-item">
+            <h4>🍄 Reishi Mushroom</h4>
+            <p>The "mushroom of immortality" in TCM. Immune-modulating (not stimulating — ideal for autoimmune types), deeply calming, prebiotic for gut health. Best taken in the evening. Works beautifully with lemon balm.</p>
+          </div>
+          <div class="adaptogen-item">
+            <h4>⚡ Cordyceps</h4>
+            <p>Energy, endurance, and blood sugar balance. Supports stamina without spiking cortisol. A good daytime adaptogen to pair with your active phases (follicular + ovulatory). Also prebiotic-supportive for gut health.</p>
+          </div>
+          <div class="adaptogen-item">
+            <h4>🌿 Holy Basil (daily)</h4>
+            <p>Unlike ashwagandha, holy basil modulates rather than stimulates the immune system — making it the preferred adaptogen if you have autoimmune considerations. Cortisol-calming, anti-inflammatory, and gentle enough for daily use every cycle phase.</p>
+          </div>
+        </div>
 
-    <!-- Daily blend -->
-    <div class="daily-blend">
-      <h4>✦ The Foundation Daily Blend</h4>
-      <p style="font-size:0.78rem;color:var(--text-dim);line-height:1.8;max-width:560px;margin:0 auto 12px;">If you could only make one tea and drink it every day, this blend covers minerals, stress support, and gentle cycle support all at once.</p>
-      <div class="blend-tags">
-        <span class="blend-tag">Nettle Leaf</span>
-        <span class="blend-tag">Raspberry Leaf</span>
-        <span class="blend-tag">Holy Basil / Tulsi</span>
-        <span class="blend-tag">Lemon Balm</span>
-        <span class="blend-tag">Spearmint</span>
+        <div class="daily-blend">
+          <h4>✦ The Foundation Daily Blend</h4>
+          <p style="font-size:0.78rem;color:var(--text-dim);line-height:1.8;max-width:560px;margin:0 auto 12px;">If you could only make one tea and drink it every day, this blend covers minerals, stress support, and gentle cycle support all at once.</p>
+          <div class="blend-tags">
+            <span class="blend-tag">Nettle Leaf</span>
+            <span class="blend-tag">Raspberry Leaf</span>
+            <span class="blend-tag">Holy Basil / Tulsi</span>
+            <span class="blend-tag">Lemon Balm</span>
+            <span class="blend-tag">Spearmint</span>
+          </div>
+          <p style="font-size:0.72rem;color:var(--text-dim);margin-top:12px;font-style:italic;">Steep 1–2 tsp per herb in hot (not boiling) water for 5–10 minutes. Drink 1–2 cups daily. This blend supports minerals, cortisol, blood sugar, and nervous system year-round.</p>
+        </div>
       </div>
-      <p style="font-size:0.72rem;color:var(--text-dim);margin-top:12px;font-style:italic;">Steep 1–2 tsp per herb in hot (not boiling) water for 5–10 minutes. Drink 1–2 cups daily. This blend supports minerals, cortisol, blood sugar, and nervous system year-round.</p>
-    </div>
+    </details>
   </div>
 </section>
 
@@ -1011,28 +1029,33 @@ footer a:hover{color:#fff;}
       </div>
     </div>
 
-    <div class="tcm-warmth">
-      <div class="warmth-list">
-        <h4>✦ Womb Warmth Practices</h4>
-        <div class="warmth-item">Wear socks — especially during menstruation. Cold feet = cold pelvis in TCM.</div>
-        <div class="warmth-item">Cover your lower abdomen in cold weather. Keep a wrap or sweater tied at your waist.</div>
-        <div class="warmth-item">Drink warm or room-temperature water and teas throughout your period — not iced.</div>
-        <div class="warmth-item">Warm baths with Epsom salt during the luteal phase to ease cramps and relax the nervous system.</div>
-        <div class="warmth-item">Eat cooked, warm foods during menstruation rather than raw salads or cold smoothies.</div>
-        <div class="warmth-item">Use a heating pad or hot water bottle on your lower abdomen during your period.</div>
-        <div class="warmth-item">Morning warm lemon water instead of cold — especially during menstrual and luteal phases.</div>
-      </div>
-      <div class="tongue-card">
-        <h4>👅 TCM Tongue Reading</h4>
-        <p>In Traditional Chinese Medicine, the tongue is a map of your internal organs and overall vitality. Color, coating, cracks, moisture, and the state of different zones all reflect patterns in digestion, circulation, energy, and reproductive health. You can explore this yourself using AI as an educational tool.</p>
-        <div class="tongue-prompt">"Using Traditional Chinese Medicine educational principles only, describe possible patterns you notice in my tongue photo. Look at color, coating, moisture, cracks, and zones. Explain what patterns might suggest about digestion, circulation, energy, warmth/cold, and menstrual health. Note: this is educational only, not medical advice. I'm in my [phase] phase, cycle day [day]."</div>
-        <p style="font-size:0.68rem;color:var(--text-light);margin-top:12px;line-height:1.6;">Take a photo of your tongue in natural light, upload it to Claude or ChatGPT, and paste this prompt. Do this monthly and compare observations over time.</p>
-      </div>
-    </div>
+    <details class="readmore">
+      <summary>✦ Go deeper: womb warmth practices &amp; tongue reading</summary>
+      <div class="readmore-body">
+        <div class="tcm-warmth">
+          <div class="warmth-list">
+            <h4>✦ Womb Warmth Practices</h4>
+            <div class="warmth-item">Wear socks — especially during menstruation. Cold feet = cold pelvis in TCM.</div>
+            <div class="warmth-item">Cover your lower abdomen in cold weather. Keep a wrap or sweater tied at your waist.</div>
+            <div class="warmth-item">Drink warm or room-temperature water and teas throughout your period — not iced.</div>
+            <div class="warmth-item">Warm baths with Epsom salt during the luteal phase to ease cramps and relax the nervous system.</div>
+            <div class="warmth-item">Eat cooked, warm foods during menstruation rather than raw salads or cold smoothies.</div>
+            <div class="warmth-item">Use a heating pad or hot water bottle on your lower abdomen during your period.</div>
+            <div class="warmth-item">Morning warm lemon water instead of cold — especially during menstrual and luteal phases.</div>
+          </div>
+          <div class="tongue-card">
+            <h4>👅 TCM Tongue Reading</h4>
+            <p>In Traditional Chinese Medicine, the tongue is a map of your internal organs and overall vitality. Color, coating, cracks, moisture, and the state of different zones all reflect patterns in digestion, circulation, energy, and reproductive health. You can explore this yourself using AI as an educational tool.</p>
+            <div class="tongue-prompt">"Using Traditional Chinese Medicine educational principles only, describe possible patterns you notice in my tongue photo. Look at color, coating, moisture, cracks, and zones. Explain what patterns might suggest about digestion, circulation, energy, warmth/cold, and menstrual health. Note: this is educational only, not medical advice. I'm in my [phase] phase, cycle day [day]."</div>
+            <p style="font-size:0.68rem;color:var(--text-light);margin-top:12px;line-height:1.6;">Take a photo of your tongue in natural light, upload it to Claude or ChatGPT, and paste this prompt. Do this monthly and compare observations over time.</p>
+          </div>
+        </div>
 
-    <div class="tcm-quote">
-      <p>"The best kept secret isn't a single herb or supplement.<br>It's learning to observe your body the way traditional women did for thousands of years —<br>and responding with warmth, nourishment, and rest."</p>
-    </div>
+        <div class="tcm-quote">
+          <p>"The best kept secret isn't a single herb or supplement.<br>It's learning to observe your body the way traditional women did for thousands of years —<br>and responding with warmth, nourishment, and rest."</p>
+        </div>
+      </div>
+    </details>
   </div>
 </section>
 
@@ -1081,24 +1104,29 @@ footer a:hover{color:#fff;}
       </div>
     </div>
 
-    <!-- Gut health note -->
-    <div class="gut-note">
-      <h4>🦠 Rebuilding After Antibiotics</h4>
-      <p>Antibiotics don't just kill harmful bacteria — they wipe out beneficial strains that are essential for hormone health, mood, immunity, and digestion. Rebuilding takes intention and time. Start with a diverse, fiber-rich diet and a high-quality probiotic. Then layer in fermented foods as your gut stabilizes.</p>
-      <div class="gut-foods">
-        <span class="gut-tag">Sauerkraut</span>
-        <span class="gut-tag">Kimchi</span>
-        <span class="gut-tag">Greek yogurt</span>
-        <span class="gut-tag">Kefir</span>
-        <span class="gut-tag">Bone broth</span>
-        <span class="gut-tag">Diverse vegetables</span>
-        <span class="gut-tag">Garlic + onion</span>
-        <span class="gut-tag">Flaxseed</span>
-        <span class="gut-tag">Chia seeds</span>
-        <span class="gut-tag">Quality probiotic</span>
+    <!-- Gut health note (collapsed by default) -->
+    <details class="readmore">
+      <summary>✦ Go deeper: rebuilding gut health after antibiotics</summary>
+      <div class="readmore-body">
+        <div class="gut-note">
+          <h4>🦠 Rebuilding After Antibiotics</h4>
+          <p>Antibiotics don't just kill harmful bacteria — they wipe out beneficial strains that are essential for hormone health, mood, immunity, and digestion. Rebuilding takes intention and time. Start with a diverse, fiber-rich diet and a high-quality probiotic. Then layer in fermented foods as your gut stabilizes.</p>
+          <div class="gut-foods">
+            <span class="gut-tag">Sauerkraut</span>
+            <span class="gut-tag">Kimchi</span>
+            <span class="gut-tag">Greek yogurt</span>
+            <span class="gut-tag">Kefir</span>
+            <span class="gut-tag">Bone broth</span>
+            <span class="gut-tag">Diverse vegetables</span>
+            <span class="gut-tag">Garlic + onion</span>
+            <span class="gut-tag">Flaxseed</span>
+            <span class="gut-tag">Chia seeds</span>
+            <span class="gut-tag">Quality probiotic</span>
+          </div>
+          <p style="margin-top:14px;font-size:0.75rem;color:var(--text-dim);font-style:italic;">Give yourself 3–6 months of consistent support. Your gut and your hormones will rebuild together — they're deeply interconnected.</p>
+        </div>
       </div>
-      <p style="margin-top:14px;font-size:0.75rem;color:var(--text-dim);font-style:italic;">Give yourself 3–6 months of consistent support. Your gut and your hormones will rebuild together — they're deeply interconnected.</p>
-    </div>
+    </details>
   </div>
 </section>
 
@@ -1260,22 +1288,24 @@ footer a:hover{color:#fff;}
 <!-- ── EBOOK CAPTURE ── -->
 <section class="capture-section" id="ebook-form">
   <div class="capture-card">
-    <div class="capture-eyebrow">✦ Download · It's Free</div>
+    <div class="capture-eyebrow">✦ Unlock · It's Free</div>
     <h2>Get the<br><em>Hormone Harmony Guide</em></h2>
     <p>Your complete introduction to cycle literacy — the four phases, hormone basics, nutrition, herbs, TCM wisdom, and how to start listening to your body today.</p>
-    <form class="capture-form" onsubmit="handleSubmit(event)">
-      <input type="text" placeholder="Your first name" required>
-      <input type="email" placeholder="Your email address" required>
-      <button type="submit">✦ Send Me the Free Guide →</button>
+    <form class="capture-form" id="guide-gate-form" onsubmit="handleGuideSubmit(event)">
+      <input type="text" id="guide-name" placeholder="Your first name" required>
+      <input type="email" id="guide-email" placeholder="Your email address" required>
+      <label style="display:flex;align-items:flex-start;gap:8px;font-size:0.72rem;color:var(--text-dim);text-align:left;margin:10px 2px;line-height:1.6;">
+        <input type="checkbox" id="guide-subscribe" style="margin-top:2px;">
+        Yes, send me occasional cycle tips &amp; insights too (totally optional)
+      </label>
+      <button type="submit">✦ Unlock My Free Guide →</button>
     </form>
-    <p class="capture-privacy">No spam. No pressure. Just education. Unsubscribe anytime.</p>
-    <div class="capture-divider"><span>or print it now</span></div>
-    <div class="capture-alt"><a href="cycle-harmony-guide.html" target="_blank">Open the print-ready PDF version →</a></div>
+    <p class="capture-privacy" id="guide-gate-privacy">No spam, no pressure — this just gets you in. You'll get instant access to the interactive tracker and the print-ready PDF, and nothing else unless you check the box above.</p>
   </div>
 </section>
 
 <!-- ── FAQ ── -->
-<section class="faq-section">
+<section class="faq-section" id="faq">
   <div class="faq-inner">
     <div class="section-eyebrow" style="text-align:center;">✦ Questions</div>
     <h2 class="section-title" style="margin-bottom:40px;">Common Questions</h2>
@@ -1332,12 +1362,38 @@ function toggleFaq(el) {
   const item = el.closest('.faq-item');
   item.classList.toggle('open');
 }
-function handleSubmit(e) {
+const LEADS_WORKER_URL = 'https://my-rhythm-api.maddie-fda.workers.dev';
+
+async function handleGuideSubmit(e) {
   e.preventDefault();
   const btn = e.target.querySelector('button');
-  btn.textContent = '✓ Check your inbox — it\'s on its way!';
-  btn.style.background = '#5e8c6a';
+  const name = document.getElementById('guide-name').value.trim();
+  const email = document.getElementById('guide-email').value.trim();
+  const subscribed = document.getElementById('guide-subscribe').checked;
+
+  btn.textContent = 'Unlocking...';
   btn.disabled = true;
+
+  try {
+    await fetch(`${LEADS_WORKER_URL}/table/Leads`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ fields: {
+        Name: name,
+        Email: email,
+        Subscribed: subscribed,
+        Source: 'cycle-harmony-guide',
+        CreatedAt: new Date().toISOString()
+      }})
+    });
+  } catch (err) {
+    console.warn('Lead save failed, unlocking anyway', err);
+  }
+
+  localStorage.setItem('ch-guide-unlocked', '1');
+  btn.textContent = '✓ You\'re in!';
+  btn.style.background = '#5e8c6a';
+  window.location.href = 'cycle-harmony-guide.html';
 }
 </script>
 </body>
